@@ -8,8 +8,7 @@ import {
   ProductImg,
   ProductInfo,
   ProductDesc,
-  ProductPrice,
-  ProductMore
+  ProductPrice
 } from './ProductsElements';
 import {
   HeroBtn
@@ -34,7 +33,6 @@ const Products = ({ heading, data, list }) => {
           );
         })}
       </ProductWrapper>
-      <ProductMore to="list">See More</ProductMore>
     </ProductsContainer>
   );
 };

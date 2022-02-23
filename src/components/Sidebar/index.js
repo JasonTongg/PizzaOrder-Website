@@ -5,9 +5,9 @@ import {
   CloseIcon,
   SidebarMenu,
   SidebarLink,
-  SidebarRoute,
-  SideBtnWrap
+  SidebarRoute
 } from './SidebarElements';
+import {HeroBtn} from '../Hero/HeroElements';
 
 const Sidebar = ({ isOpen, toggle }) => {
   return (
@@ -16,11 +16,11 @@ const Sidebar = ({ isOpen, toggle }) => {
         <CloseIcon />
       </Icon>
       <SidebarMenu>
-        <SidebarLink to='/'>Full Menu</SidebarLink>
+        <SidebarLink to='list'>Full Menu</SidebarLink>
       </SidebarMenu>
-      <SideBtnWrap>
+      <HeroBtn>
         <SidebarRoute to='/'>Order Now</SidebarRoute>
-      </SideBtnWrap>
+      </HeroBtn>
     </SidebarContainer>
   );
 };

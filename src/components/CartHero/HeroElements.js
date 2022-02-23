@@ -1,19 +1,18 @@
 import styled from 'styled-components';
-import ImgBg from '../../images/pizza-3.jpeg';
+import ImgBg from '../../images/cart-header.png';
 
 export const HeroContainer = styled.div`
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
     url(${ImgBg});
-  height: 100vh;
+  height: 30vh;
   background-position: center;
   background-size: cover;
 `;
 
 export const HeroContent = styled.div`
-  height: calc(100vh - 80px);
-  max-height: 100%;
+  height: calc(100% - 80px);
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 `;
 
 export const HeroItems = styled.div`
@@ -21,10 +20,8 @@ export const HeroItems = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  max-height: 100%;
-  width: 800px;
-  padding: 0 10rem;
+  height: 100%;
+  width: 100vw;
   color: #fff;
   text-transform: uppercase;
   line-height: 1;
@@ -42,15 +39,8 @@ export const HeroItems = styled.div`
 export const HeroH1 = styled.h1`
   font-size: clamp(1.5rem, 7vw, 3.5rem);
   margin-bottom: 1rem;
-  box-shadow: 0 3px #e9ba23;
   padding: .5rem 1.5rem;
   letter-spacing: 3px;
-  font-weight: 100;
-`;
-
-export const HeroP = styled.p`
-  font-size: clamp(1rem, 1.5vw, 2rem);
-  margin-bottom: 2rem;
   font-weight: 100;
 `;
 
@@ -63,7 +53,6 @@ export const HeroBtn = styled.button`
   transition: 0.2s ease-out;
   background: none;
   text-align: center;
-  margin-bottom: 1rem;
 
   &:hover {
     background: #ffc500;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
-import { FaPizzaSlice, FaCartPlus, FaPhoneAlt, FaListAlt } from 'react-icons/fa';
+import { FaPizzaSlice, FaListAlt } from 'react-icons/fa';
 
 export const Nav = styled.nav`
   background: transparent;
@@ -55,6 +55,7 @@ export const NavIcon = styled.div`
   font-size: 20px;
   transition: 0.2s ease-out;
   margin: 0 1rem;
+  margin-top: 1rem;
 
   @media screen and (max-width: 900px) {
     width: 8rem;
@@ -62,7 +63,6 @@ export const NavIcon = styled.div`
 
   @media screen and (max-width: 600px) {
     width: 7rem;
-    margin: 0 .7rem;
   }
 
   @media screen and (max-width: 360px) {
@@ -81,65 +81,15 @@ export const NavIcon = styled.div`
 
 export const NavItem = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 34.375rem;
-
-  @media screen and (max-width: 900px) {
-    width: 30rem;
-  }
-
-  @media screen and (max-width: 600px) {
-    width: 25rem;
-  }
-
-  @media screen and (max-width: 540px) {
-    width: 19rem;
-  }
-
-  @media screen and (max-width: 440px) {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 1rem;
-  }
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 15rem;
+  margin-top: 3rem;
+  margin-left: 3rem;
 `;
 
 export const Bars = styled(FaPizzaSlice)`
-  font-size: 20px;
-  margin-left: .7rem;
-
-  @media screen and (max-width: 900px) {
-    font-size: 18px;
-  }
-
-  @media screen and (max-width: 600px) {
-    font-size: 16px;
-  }
-
-  @media screen and (max-width: 540px) {
-    display: none;
-  }
-`;
-
-export const Cart = styled(FaCartPlus)`
-  font-size: 20px;
-  margin-left: .7rem;
-
-  @media screen and (max-width: 900px) {
-    font-size: 18px;
-  }
-
-  @media screen and (max-width: 600px) {
-    font-size: 16px;
-  }
-
-  @media screen and (max-width: 540px) {
-    display: none;
-  }
-`;
-
-export const Phone = styled(FaPhoneAlt)`
   font-size: 20px;
   margin-left: .7rem;
 

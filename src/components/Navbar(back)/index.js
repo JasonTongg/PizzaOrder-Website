@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavLink, NavIcon, Bars , NavItem, Cart, Phone, Menu} from './NavbarElements';
+import { Nav, NavLink, NavIcon, Bars , NavItem, Menu} from './NavbarElements';
 
 const Navbar = ({ toggle }) => {
   return (
@@ -11,13 +11,8 @@ const Navbar = ({ toggle }) => {
             <Bars />
           </NavIcon>  
           <NavIcon onClick={""}>
-          <NavLink to='contact'>Contact Us</NavLink>
-            <Phone />
-          </NavIcon> 
-          <NavIcon onClick={""}>
-          <NavLink to='cart'>Cart</NavLink>
-            <Cart />
-          </NavIcon> 
+            <NavLink to='/'>Back to Home</NavLink>
+          </NavIcon>
         </NavItem>
         <NavIcon onClick={toggle}>
           <p>Menu</p>
