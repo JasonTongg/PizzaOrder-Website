@@ -42,6 +42,7 @@ export const HeroH1 = styled.h1`
   padding: .5rem 1.5rem;
   letter-spacing: 3px;
   font-weight: 100;
+  text-align: center;
 `;
 
 export const HeroBtn = styled.button`

@@ -39,19 +39,32 @@ export const HeroItems = styled.div`
 export const HeroContentItem = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   color: #fff;
   line-height: 1;
   width: 60%;
+
+  @media only screen and (max-width: 1000px){
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media only screen and (max-width: 600px){
+    width: 80%;
+  }
 `;
 
 export const HeroH1 = styled.h1`
-  font-size: clamp(1.5rem, 7vw, 3.5rem);
+  font-size: 3rem;
   margin-bottom: 1rem;
   padding: .5rem 1.5rem;
   letter-spacing: 3px;
   font-weight: 100;
+
+  @media only screen and (max-width: 600px){
+    font-size: 2rem;
+  }
 `;
 
 export const HeroH2 = styled.h2`
@@ -60,18 +73,34 @@ export const HeroH2 = styled.h2`
   font-weight: 100;
   width: 50%;
   padding: 2rem .2rem;
+  text-align: left;
+  margin-right: 1rem;
+
+  @media only screen and (max-width: 1000px){
+    text-align: center;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 600px){
+    font-size: 1.5rem;
+  }
 `;
 
 export const HeroP = styled.p`
   font-size: 1.3rem;
   font-weight: normal;
   width: 50%;
-  padding: 2rem 0 2rem 4rem;
-`;
+  text-align: right;
+  margin-left: 1rem;
 
-export const HeroLine = styled.div`
-  border-right: .3rem solid #e9ba23;
-  height: 80%;
+  @media only screen and (max-width: 1000px){
+    text-align: center;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 600px){
+    font-size: 1rem;
+  }
 `;
 
 export const HeroBtn = styled.button`
