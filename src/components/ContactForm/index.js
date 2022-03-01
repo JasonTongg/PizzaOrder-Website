@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Form, FormItem, FormLabel, FormInput, FormBody, FormTextArea, FormButton, FormPopUp, FormPopUpItem, FormPopUpImage, FormPopUpHeader, FormPopUpText, FormPopUpParagraph, PopUpIcon
+  Form, FormItem, FormLabel, FormInput, FormBody, FormTextArea, FormButton, FormPopUp, FormPopUpItem, FormPopUpImage, FormPopUpHeader, FormPopUpText, FormPopUpParagraph, PopUpIcon, btnClick
 } from './FormElements';
 import PopUpImage from '../../images/popup.png';
 
@@ -24,9 +24,9 @@ const ContactForm = () => {
           <FormLabel for="message">Message</FormLabel>
           <FormTextArea id='message' placeholder='Input message' rows="12"></FormTextArea>
         </FormItem>
-        <FormButton className='submitButton'>Next</FormButton>
+        <FormButton className='submitButton' onClick={btnClick}>Next</FormButton>
       </Form>
-      <FormPopUp to="/" className="popup">
+      <FormPopUp className="popup" to="/">
         <FormPopUpItem>
           <FormPopUpImage src={PopUpImage}></FormPopUpImage>
           <FormPopUpText>

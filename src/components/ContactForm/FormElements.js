@@ -124,3 +124,9 @@ export const PopUpIcon = styled(FaCheckCircle)`
   font-size: 6rem;
   margin-bottom: 1rem;
 `;
+
+export const btnClick = (e) => {
+  let popup = document.querySelector('.popup');
+  e.preventDefault();
+  popup.style.display = "flex";
+};
