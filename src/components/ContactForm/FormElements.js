@@ -95,11 +95,30 @@ export const FormPopUpItem = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+
+  @media only screen and (max-width: 900px){
+    width: 70%;
+  }
+
+  @media only screen and (max-width: 500px){
+    width: 90%;
+  }
 `;
 
 export const FormPopUpImage = styled.img`
   height: 100%;
+  width: 70%;
   clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+
+  @media only screen and (max-width: 1600px){
+    width: 60%;
+  }
+
+  @media only screen and (max-width: 1300px){
+    clip-path: none;
+    width: 100%;
+  }
 `;
 
 export const FormPopUpText = styled.div`
@@ -109,11 +128,44 @@ export const FormPopUpText = styled.div`
   align-items: center;
   height: 100%;
   padding-right: 1.5rem;
+
+  @media only screen and (max-width: 1300px){
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255, 0.7);
+    padding: 0 1.5rem;
+    height: 55%;
+    border-radius: 5%;
+  }
+
+  @media only screen and (max-width: 1150px){
+    width: 60%;
+  }
+
+  @media only screen and (max-width: 970px){
+    width: 75%;
+  }
+
+  @media only screen and (max-width: 600px){
+    width: 90%;
+  }
 `;
 
 export const FormPopUpHeader = styled.h2`
   text-align: start;
   margin-bottom: 1rem;
+
+  @media only screen and (max-width: 1300px){
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 640px){
+    // font-size: 1.5rem;
+    // font-weight: normal;
+  }
 `;
 
 export const FormPopUpParagraph = styled.p`

@@ -19,13 +19,12 @@ function App() {
         <Route path="/cart">
           <Cart />
         </Route>
-        <Route path="/cart/payment">
+        <Route path="/payment">
           <Payment />
         </Route>
         <Route exact path="/">
           <Home />
         </Route>
-        
       </Switch>
     </Router>
   );

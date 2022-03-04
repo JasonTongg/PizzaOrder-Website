@@ -13,12 +13,12 @@ const ContactForm = () => {
           <FormInput id='name' placeholder='Input your name' type="text"></FormInput>
         </FormItem>
         <FormItem>
-          <FormLabel for="nohp">Phone Number</FormLabel>
-          <FormInput id='nohp' placeholder='Input your phone number' type="text"></FormInput>
-        </FormItem>
-        <FormItem>
           <FormLabel for="email">Email</FormLabel>
           <FormInput id='email' placeholder='Input your email' type="email"></FormInput>
+        </FormItem>
+        <FormItem>
+          <FormLabel for="subject">Subject</FormLabel>
+          <FormInput id='subject' placeholder='Input subject' type="text"></FormInput>
         </FormItem>
         <FormItem>
           <FormLabel for="message">Message</FormLabel>
