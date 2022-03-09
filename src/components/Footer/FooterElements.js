@@ -43,8 +43,8 @@ export const SocialLogo = styled(Link)`
   margin-bottom: 16px;
   font-weight: normal;
 
-  :hover{
-    color: #fdc500;
+  &:hover{
+    color: #ff680f;
   }
 `;
 
@@ -58,4 +58,8 @@ export const SocialIcons = styled.div`
 export const SocialIconLink = styled.a`
   color: #fff;
   font-size: 24px;
+
+  &:hover{
+    color: #ff680f;
+  }
 `;

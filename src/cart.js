@@ -3,16 +3,16 @@ import { GlobalStyle } from './globalStyles';
 import Footer from './components/Footer';
 import CartHero from './components/CartHero';
 import CartBody from './components/CartBody';
-import {DataList} from './components/CartBody/data';
+import {OverflowHidden} from './index';
 
 const cart = () => {
     return (
-        <>
+        <OverflowHidden>
             <GlobalStyle />
             <CartHero />
-            <CartBody data={DataList} />
+            <CartBody/>
             <Footer />
-        </>
+        </OverflowHidden>
     )
 }
 

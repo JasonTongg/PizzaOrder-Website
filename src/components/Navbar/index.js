@@ -6,17 +6,13 @@ const Navbar = ({ toggle }) => {
     <>
       <Nav>
         <NavItem>
-          <NavIcon onClick={""}>
+          <NavIcon>
             <NavLink to='/'>Pizzaria</NavLink>
             <Bars />
           </NavIcon>  
-          <NavIcon onClick={""}>
-          <NavLink to='contact'>Contact Us</NavLink>
+          <NavIcon>
+            <NavLink to='contact'>Contact Us</NavLink>
             <Phone />
-          </NavIcon> 
-          <NavIcon onClick={""}>
-          <NavLink to='cart'>Cart</NavLink>
-            <Cart />
           </NavIcon> 
         </NavItem>
         <NavIcon onClick={toggle}>

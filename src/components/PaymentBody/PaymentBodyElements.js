@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 import { FaMoneyBillWave, FaCheckCircle } from 'react-icons/fa';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
 
 export const PaymentIcon = styled(FaMoneyBillWave)`
     color: white;
@@ -47,7 +49,7 @@ export const RadioInput = styled.input`
     padding: 5px;
 
     &:checked{
-        background: #ffa500;
+        background: #cc4d02;
         border: 2px solid white;
     }
 `;
@@ -117,7 +119,25 @@ export const PaymentStatusText = styled.div`
     align-items: start;
 `;
 
-export let HargaNominal = 404000;
+export let HargaNominal = () => {
+    let total =0;
+    const [products, setProduct] = useState([]);
+
+    useEffect(() => {
+        getProducts();
+    }, [])
+
+    const getProducts = async () => {
+        const response = await axios.get('http://localhost:5000/cart');
+        setProduct(response.data);
+    }
+    
+    products.forEach((item) => {
+        total+=(item.price * item.qty);
+    })
+
+    return total;
+};
 
 export const TextH2 = styled.h2`
     color: white;
@@ -141,7 +161,8 @@ export const PayBtn = styled.button`
     border: none;
 
     &:hover{
-        background: #ffa500;
+        background: #cc4d02;
+        color: white;
     }
 
     @media only screen and (max-width: 680px){
@@ -218,8 +239,25 @@ export const PopupIcon = styled(FaCheckCircle)`
     margin-bottom: .8rem;
 `;
 
-export const DisplayPopup = (e) => {
-    let popup = document.querySelector('.popup');
-    e.preventDefault();
-    popup.style.display = "flex";
-}
+export const PaymentVoucher = styled.div`
+    margin-top: 1.5rem;
+    display: flex;
+`;
+
+export const VoucherInput = styled.input`
+    border: none;
+    outline: none;
+    padding: .5rem;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
+`;
+
+export const VoucherStatus = styled.p`
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+`;

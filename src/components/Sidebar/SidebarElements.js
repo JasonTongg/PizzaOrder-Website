@@ -1,14 +1,31 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
+import {FaCartPlus} from 'react-icons/fa';
 
+export const Cart = styled(FaCartPlus)`
+  font-size: 20px;
+  margin-left: .7rem;
+
+  @media screen and (max-width: 900px) {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 540px) {
+    display: none;
+  }
+`;
 
 export const SidebarContainer = styled.aside`
   position: fixed;
   z-index: 999;
   width: 350px;
   height: 100%;
-  background: #ffc500;
+  background: linear-gradient(to right bottom, #cc4d02, brown, rgb(154,76,70));
   display: grid;
   align-items: center;
   top: 0;
@@ -21,7 +38,7 @@ export const SidebarContainer = styled.aside`
 `;
 
 export const CloseIcon = styled(FaTimes)`
-  color: #000;
+  color: white;
 `;
 
 export const Icon = styled.div`
@@ -54,45 +71,54 @@ export const SidebarLink = styled(Link)`
   text-decoration: none;
   list-style: none;
   transition: 0.2s ease-in-out;
-  color: #000;
   cursor: pointer;
-  font-weight: bold;
+  background: linear-gradient(to right, #cc4d02, brown, rgb(154,76,70));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
 
-  &:hover {
-    color: white;
-    transition: 0.2s ease-in-out;
+export const SidebarLinkContainer = styled.div`
+  width: 70%;
+  height: 70%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  margin: 0 auto 1rem auto;
+
+  &:hover{
+    box-shadow: .02rem .1rem 1rem white;
+    transform: translatey(-5px);
+    transition: .2s linear;
+  }
+
+  &:active{
+      box-shadow: .005rem .05rem .5rem white;
+      transform: translatey(-3px);
+      transition: .2s linear;
   }
 `;
 
 export const SideBtnWrap = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-export const SidebarRoute = styled(Link)`
+  width: 70%;
+  height: 20%;
   background: white;
-  white-space: nowrap;
-  padding: 16px 64px;
-  color: #000;
-  font-size: 16px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-  text-decoration: none;
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  margin: 0 auto 1rem auto;
 
-  &:hover {
-    transition: 0.2s ease-in-out;
-    background: rgba(0,0,0,.7);
-    color: #fff;
+  &:hover{
+    box-shadow: .02rem .1rem 1rem white;
     transform: translatey(-5px);
-    box-shadow: .2rem .3rem 1rem black;
+    transition: .2s linear;
   }
 
   &:active{
-    transform: translatey(-3px);
-    box-shadow: .1rem .2rem .7rem black;
-    transition: 0.2s ease-in-out;
+      box-shadow: .005rem .05rem .5rem white;
+      transform: translatey(-3px);
+      transition: .2s linear;
   }
 `;

@@ -39,7 +39,7 @@ export const HeroItems = styled.div`
 export const HeroH1 = styled.h1`
   font-size: clamp(1.5rem, 7vw, 3.5rem);
   margin-bottom: 1rem;
-  box-shadow: 0 3px #e9ba23;
+  box-shadow: 0 3px #ff680f;
   padding: .5rem 1.5rem;
   letter-spacing: 3px;
   font-weight: 100;

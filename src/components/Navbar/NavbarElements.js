@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
-import { FaPizzaSlice, FaCartPlus, FaPhoneAlt, FaListAlt } from 'react-icons/fa';
+import { FaPizzaSlice, FaPhoneAlt, FaListAlt } from 'react-icons/fa';
 
 export const Nav = styled.nav`
   background: transparent;
@@ -37,7 +37,7 @@ export const NavLink = styled(Link)`
 
   &:hover {
     transition: 0.2s ease-out;
-    color: #ffc500;
+    color: #ff680f;
   }
 `;
 
@@ -75,7 +75,7 @@ export const NavIcon = styled.div`
 
   &:hover{
     transition: 0.2s ease-out;
-    color: #ffc500;
+    color: #ff680f;
   }
 `;
 
@@ -106,23 +106,6 @@ export const NavItem = styled.div`
 `;
 
 export const Bars = styled(FaPizzaSlice)`
-  font-size: 20px;
-  margin-left: .7rem;
-
-  @media screen and (max-width: 900px) {
-    font-size: 18px;
-  }
-
-  @media screen and (max-width: 600px) {
-    font-size: 16px;
-  }
-
-  @media screen and (max-width: 540px) {
-    display: none;
-  }
-`;
-
-export const Cart = styled(FaCartPlus)`
   font-size: 20px;
   margin-left: .7rem;
 

@@ -15,6 +15,10 @@ export const ContainerBlack = styled.div`
   background: #150f0f;
 `;
 
+export const OverflowHidden = styled.div`
+  overflow-x: hidden;
+`;
+
 ReactDOM.render(
     <App />,
   document.getElementById('root')

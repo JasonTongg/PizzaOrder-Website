@@ -5,8 +5,8 @@ import {
   CloseIcon,
   SidebarMenu,
   SidebarLink,
-  SidebarRoute,
-  SideBtnWrap
+  SideBtnWrap,
+  SidebarLinkContainer
 } from './SidebarElements';
 
 const Sidebar = ({ isOpen, toggle }) => {
@@ -16,10 +16,18 @@ const Sidebar = ({ isOpen, toggle }) => {
         <CloseIcon />
       </Icon>
       <SidebarMenu>
-        <SidebarLink to='list'>Full Menu</SidebarLink>
+        <SidebarLinkContainer>
+          <SidebarLink to='/list'>Full Menu</SidebarLink>
+        </SidebarLinkContainer>
+        <SidebarLinkContainer>
+          <SidebarLink to='/cart'>Food Cart</SidebarLink>
+        </SidebarLinkContainer>
+        <SidebarLinkContainer>
+          <SidebarLink to='/login'>Login as Admin</SidebarLink>
+        </SidebarLinkContainer>
       </SidebarMenu>
       <SideBtnWrap>
-        <SidebarRoute to='/list'>Order Now</SidebarRoute>
+        <SidebarLink to='/list'>Order Now</SidebarLink>
       </SideBtnWrap>
     </SidebarContainer>
   );

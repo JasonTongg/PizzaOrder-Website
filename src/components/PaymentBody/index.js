@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadioLabel, RadioInput, RadioForm, InputContainer, RadioLabelImage, Line, Container, PaymentIcon, PaymentStatus, TextH1, PaymentStatusInfo, PaymentStatusText, TextP, HargaNominal, TextH2, PayBtn, PopupContainer, PopupItem, PopupText, PopupImage, TextH1Black, TextPBlack, PopupIcon, DisplayPopup } from './PaymentBodyElements';
+import { RadioLabel, RadioInput, RadioForm, InputContainer, RadioLabelImage, Line, Container, PaymentIcon, PaymentStatus, TextH1, PaymentStatusInfo, PaymentStatusText, TextP, HargaNominal, TextH2, PayBtn, PopupContainer, PopupItem, PopupText, PopupImage, TextH1Black, TextPBlack, PopupIcon, PaymentVoucher, VoucherInput, VoucherStatus } from './PaymentBodyElements';
 import bca from '../../images/bca.png';
 import bni from '../../images/bni.png';
 import mandiri from '../../images/mandiri.png';
@@ -9,8 +9,28 @@ import gopay from '../../images/gopay.png';
 import dana from '../../images/dana.png';
 import shopeepay from '../../images/shopeepay.png';
 import PopupImg from '../../images/popup.png';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
 
 const PaymentBody = () => {
+  const [products, setProduct] = useState([]);
+
+  useEffect(() => {
+    getProducts();
+  }, [])
+
+  const getProducts = async () => {
+    const response = await axios.get('http://localhost:5000/cart');
+    setProduct(response.data);
+  }
+
+  const deleteProduct = async (id) => {
+    await axios.delete(`http://localhost:5000/cart/${id}`);
+    getProducts();
+  }
+
+  let total = HargaNominal();
+
   return (
     <Container>
       <TextH1>Payment Methods</TextH1>
@@ -54,15 +74,55 @@ const PaymentBody = () => {
         <PaymentStatusInfo>
           <PaymentIcon></PaymentIcon>
           <PaymentStatusText>
-            <TextP>Jumlah Nominal: Rp. {HargaNominal},-</TextP>
+            <TextP>Jumlah Nominal: Rp. {total},-</TextP>
             <TextP>Biaya Administrasi: Rp. 15000,-</TextP>
-            <TextP>PPN: Rp. {HargaNominal/10},-</TextP>
+            <TextP>PPN: Rp. {total/10},-</TextP>
           </PaymentStatusText>
         </PaymentStatusInfo>
         <PaymentStatusInfo>
-          <TextH2>Total: Rp. {HargaNominal + HargaNominal/10 + 15000},-</TextH2>
-          <PayBtn onClick={DisplayPopup}>Pay</PayBtn>
+          <TextH2 className='total'>Total: Rp. {total + total/10 + 15000},-</TextH2>
+          <PayBtn onClick={(e) => {
+            products.forEach((item) => {
+              deleteProduct(item.id);
+              let popup = document.querySelector('.popup');
+              e.preventDefault();
+              popup.style.display = "flex";
+            })
+          }}>Pay</PayBtn>
         </PaymentStatusInfo>
+        <PaymentVoucher>
+          <VoucherInput placeholder='Input Voucher Code' className='voucher' onChange={(e) => {
+              if(e.target.value === "NewYear"){
+                total=0;
+                products.forEach((item) => {
+                  total+=(item.price * item.qty);
+                });
+                let diskon=total*15/100;
+                total=total-diskon;
+                total = total + total/15 + 15000;
+                total=Math.round(total);
+                document.querySelector('.status').innerHTML = "Discount 15%";
+                document.querySelector('.total').innerHTML = `Total: Rp. ${total},-`;
+              }
+              else if(e.target.value === "Pizzaria0303"){
+                total=0;
+                products.forEach((item) => {
+                  total+=(item.price * item.qty);
+                });
+                total= total + total/40 + 15000;
+                let diskon=total*40/100;
+                total=total-diskon;
+                total=Math.round(total);
+                
+                document.querySelector('.status').innerHTML = "Discount 40%";
+                document.querySelector('.total').innerHTML = `Total: Rp. ${total},-`;
+              }
+              else{
+                document.querySelector('.status').innerHTML = "Not Available";
+              }
+          }}></VoucherInput>
+          <VoucherStatus className='status'></VoucherStatus>
+        </PaymentVoucher>
       </PaymentStatus>
       <PopupContainer to="/" className="popup">
         <PopupItem>

@@ -37,7 +37,7 @@ export const NavLink = styled(Link)`
 
   &:hover {
     transition: 0.2s ease-out;
-    color: #ffc500;
+    color: #ff680f;
   }
 `;
 
@@ -75,7 +75,7 @@ export const NavIcon = styled.div`
 
   &:hover{
     transition: 0.2s ease-out;
-    color: #ffc500;
+    color: #ff680f;
   }
 `;
 
