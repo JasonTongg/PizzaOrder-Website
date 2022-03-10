@@ -3,7 +3,7 @@ import db from "../Back-End/Database.js";
 
 const {DataTypes} = Sequelize;
 
-const Product = db.define('pizzaproduct', {
+const Product = db.define('order', {
     name:{
         type: DataTypes.STRING
     },

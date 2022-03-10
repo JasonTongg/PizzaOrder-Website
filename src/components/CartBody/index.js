@@ -5,6 +5,16 @@ import {
 } from './ProductsElements';
 
 const Products = ({ data, list }) => {
+  const [orders, setOrder] = useState([]);
+
+  useEffect(() => {
+    getOrder();
+  }, [])
+
+  const getOrder = async () => {
+    const response = await axios.get('http://localhost:5000/order');
+    setOrder(response.data);
+  }
 
   const [products, setProduct] = useState([]);
 
@@ -50,7 +60,7 @@ const Products = ({ data, list }) => {
           total+=(item.price * item.qty);
         })}
         <TextP>Rp. {total},-</TextP>
-        <Btn to='/payment' className="btn">Next</Btn>
+        <Btn className="btn" to="/payment">Next</Btn>
       </InfoContainer>
     </ProductsContainer>
   );

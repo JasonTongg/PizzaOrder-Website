@@ -23,6 +23,9 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink to='/cart'>Food Cart</SidebarLink>
         </SidebarLinkContainer>
         <SidebarLinkContainer>
+          <SidebarLink to='/history'>Order History</SidebarLink>
+        </SidebarLinkContainer>
+        <SidebarLinkContainer>
           <SidebarLink to='/login'>Login as Admin</SidebarLink>
         </SidebarLinkContainer>
       </SidebarMenu>

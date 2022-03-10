@@ -8,6 +8,8 @@ import Payment from './payment';
 import AdminLogin from './AdminLogin';
 import Err from './error';
 import Admin from './Admin';
+import History from './History';
+import Message from './message';
 import { Redirect } from 'react-router-dom';
 
 function App() {
@@ -31,6 +33,12 @@ function App() {
         </Route>
         <Route path="/admin">
           <Admin />
+        </Route>
+        <Route path="/history">
+          <History />
+        </Route>
+        <Route path="/message">
+          <Message />
         </Route>
         <Route exact path="/">
           <Home />

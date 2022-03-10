@@ -13,6 +13,17 @@ import {useEffect, useState} from 'react';
 import axios from 'axios';
 
 const PaymentBody = () => {
+  const [orders, setOrder] = useState([]);
+
+  useEffect(() => {
+    getOrder();
+  }, [])
+
+  const getOrder = async () => {
+    const response = await axios.get('http://localhost:5000/order');
+    setOrder(response.data);
+  }
+
   const [products, setProduct] = useState([]);
 
   useEffect(() => {
@@ -87,6 +98,11 @@ const PaymentBody = () => {
               let popup = document.querySelector('.popup');
               e.preventDefault();
               popup.style.display = "flex";
+              axios.post('http://localhost:5000/order', {
+                  name: item.name,
+                  price: item.price,
+                  qty: item.qty
+              })
             })
           }}>Pay</PayBtn>
         </PaymentStatusInfo>

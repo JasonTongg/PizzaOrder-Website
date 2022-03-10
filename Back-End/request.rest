@@ -46,3 +46,16 @@ Content-Type: application/json
 
 ###
 GET http://localhost:5000/list
+
+###
+POST http://localhost:5000/order
+Content-Type: application/json
+
+{
+    "name": "Pizza-4",
+    "price": "15000",
+    "qty": "10"
+}
+
+###
+GET http://localhost:5000/order

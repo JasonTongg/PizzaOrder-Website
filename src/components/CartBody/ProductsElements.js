@@ -55,7 +55,7 @@ export const ProductInfo = styled.div`
 `;
 
 export const ProductPrice = styled.p`
-
+  font-size: 1.3rem;
 `;
 
 export const ProductQty = styled.p`
@@ -161,7 +161,7 @@ export const Btn = styled(Link)`
   }
 `;
 
-export const InfoContainer = styled.div`
+export const InfoContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: start;

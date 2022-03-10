@@ -26,6 +26,7 @@ export const SidebarContainer = styled.aside`
   width: 350px;
   height: 100%;
   background: linear-gradient(to right bottom, #cc4d02, brown, rgb(154,76,70));
+  // background: black;
   display: grid;
   align-items: center;
   top: 0;
@@ -55,7 +56,7 @@ export const Icon = styled.div`
 export const SidebarMenu = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 80px);
+  grid-template-rows: repeat(4, 80px);
   text-align: center;
 
   @media screen and (max-width: 480px) {
