@@ -41,6 +41,9 @@ const PaymentBody = () => {
   }
 
   let total = HargaNominal();
+  let cekDiskon = () => {
+    return document.querySelector(".voucher").value;
+  }
 
   return (
     <Container>
@@ -98,10 +101,13 @@ const PaymentBody = () => {
               let popup = document.querySelector('.popup');
               e.preventDefault();
               popup.style.display = "flex";
+              console.log(cekDiskon());
               axios.post('http://localhost:5000/order', {
                   name: item.name,
                   price: item.price,
-                  qty: item.qty
+                  qty: item.qty,
+                  alt: item.alt,
+                  diskon: cekDiskon()
               })
             })
           }}>Pay</PayBtn>

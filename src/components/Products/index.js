@@ -21,6 +21,7 @@ const Products = ({ heading, data1,data2, list }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [qty, setQty] = useState('');
+  const [alt, setAlt] = useState('');
   const [products, setProduct] = useState([]);
 
   useEffect(() => {
@@ -48,7 +49,8 @@ const Products = ({ heading, data1,data2, list }) => {
     await axios.post('http://localhost:5000/cart', {
       name: name,
       price: price,
-      qty: qty
+      qty: qty,
+      alt: alt
     })
     getProducts();
   }
@@ -78,6 +80,7 @@ const Products = ({ heading, data1,data2, list }) => {
                       setName(product.name);
                       setPrice(product.price);
                       setQty(product.qty);
+                      setAlt(product.alt);
                     }
                     else{
                       let newQty = cek.qty+1;
@@ -86,6 +89,7 @@ const Products = ({ heading, data1,data2, list }) => {
                       setName(product.name);
                       setPrice(product.price);
                       setQty(newQty);
+                      setAlt(product.alt);
                     }
                   }}>{product.button}</HeroBtn>
                 </ProductInfo>

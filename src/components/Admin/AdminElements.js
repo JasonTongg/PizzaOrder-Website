@@ -209,7 +209,7 @@ export const TableHeader = styled.div`
     align-items: center;
     justify-content: space-evenly;
     padding: 0 1rem;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     min-width: 700px;
 `;
 
@@ -223,7 +223,7 @@ export const TableHeaderItem = styled.p`
 export const TableRowItem= styled.p`
     color: white;
     font-size: 1.5rem;
-    width: 200px;
+    width: 250px;
     text-align: center;
 `;
 
@@ -231,7 +231,7 @@ export const ProfitContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 1.5rem;
-    padding: 1.5rem 0;
+    padding: 0 0 1.5rem 0;
 
     @media only screen and (max-width: 600px){
         grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -253,7 +253,7 @@ export const ProfitItem = styled.div`
 `;
 
 export const TableOverflow = styled.div`
-    max-height: 300px;
+    max-height: 500px;
     min-width: 700px;
 `;
 
@@ -261,7 +261,7 @@ export const TableContainer = styled.div`
     width: 90%;
     overflow: auto;
     border-radius: 30px;
-    padding: 3rem;
+    padding: 1.5rem;
     background: #1d202d;
 
     ::-webkit-scrollbar{

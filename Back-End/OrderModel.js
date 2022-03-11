@@ -12,6 +12,12 @@ const Product = db.define('order', {
     },
     qty:{
         type: DataTypes.INTEGER
+    },
+    alt:{
+        type: DataTypes.STRING
+    },
+    diskon:{
+        type: DataTypes.STRING
     }
 },{
     freezeTableName: true

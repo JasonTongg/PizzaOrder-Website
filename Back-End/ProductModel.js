@@ -12,6 +12,9 @@ const Product = db.define('pizzaproduct', {
     },
     qty:{
         type: DataTypes.INTEGER
+    },
+    alt:{
+        type: DataTypes.STRING
     }
 },{
     freezeTableName: true

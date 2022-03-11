@@ -10,7 +10,7 @@ const message = () => {
         <OverflowHidden>
             <GlobalStyle />
             <Navbar/>
-            <MessagePage></MessagePage>
+            <MessagePage />
             <Footer />
         </OverflowHidden>
     )

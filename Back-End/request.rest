@@ -19,7 +19,8 @@ Content-Type: application/json
 {
     "name": "Pizza-Dua",
     "price": 50000,
-    "qty": 2
+    "qty": 2,
+    "alt": "Pizza"
 }
 
 ###

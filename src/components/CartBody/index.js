@@ -5,16 +5,6 @@ import {
 } from './ProductsElements';
 
 const Products = ({ data, list }) => {
-  const [orders, setOrder] = useState([]);
-
-  useEffect(() => {
-    getOrder();
-  }, [])
-
-  const getOrder = async () => {
-    const response = await axios.get('http://localhost:5000/order');
-    setOrder(response.data);
-  }
 
   const [products, setProduct] = useState([]);
 
