@@ -104,6 +104,22 @@ export const TextP = styled.p`
     }
 `;
 
+export const TextP4 = styled.p`
+    font-size: 1.5rem;
+    color: #676b78;
+    text-align: center;
+    margin-block: 1rem;
+
+    @media only screen and (max-width: 970px){
+        font-size: 1.2rem;
+    }
+
+    @media only screen and (max-width: 600px){
+        font-size: 1rem;
+        margin: 0;
+    }
+`;
+
 export const TextP2 = styled.p`
     font-size: 2rem;
     color: #676b78;
@@ -215,7 +231,7 @@ export const TableHeader = styled.div`
 
 export const TableHeaderItem = styled.p`
     color: #676b78;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     width: 200px;
     text-align: center;
 `;
@@ -266,5 +282,187 @@ export const TableContainer = styled.div`
 
     ::-webkit-scrollbar{
         display: none;
+    }
+`;
+
+export const Container = styled.div`
+    display: grid;
+    margin-block: 4rem 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 90%;
+`;
+
+export const ZeroContainer = styled.div`
+    width: 100%;
+    background: #1d202d;
+    overflow: auto;
+    border-radius: 30px;
+    max-height: 380px;
+    
+    ::-webkit-scrollbar{
+        display: none;
+    }
+`;
+
+export const ZeroHeader = styled.div`
+    width: 100%;
+    height: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 1.5rem;
+`;
+
+export const ZeroTableHeader = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 1rem;
+    padding-bottom: 1rem;
+`;
+
+export const ZeroTable = styled.div`
+    max-height: 500px;
+    margin-top: 1rem;
+`;
+
+export const ZeroItem = styled.p`
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+`;
+
+export const ZeroItems = styled.p`
+    color: #676b78;
+    font-size: 1.7rem;
+    width: 200px;
+    text-align: center;
+`;
+
+export const AddUpdateContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    background: #1d202d;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 1.5rem;
+    max-height: 380px;
+`;
+
+export const AddForm = styled.form`
+    width: 100%;
+    padding-inline: 1rem;
+    background: #1d202d;
+    overflow: auto;
+    border-radius: 30px;
+    max-height: 380px;
+    
+    ::-webkit-scrollbar{
+        display: none;
+    }
+`;
+
+export const AddFormItem = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+`;
+
+export const AddLabel = styled.label`
+    margin-right: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    width: 120px;
+    text-align: end;
+`;
+
+export const AddLabel1 = styled.label`
+    margin-right: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    align-self: start;
+    width: 100px;
+    text-align: end;
+`;
+
+export const AddInput = styled.input`
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    background: none;
+    color: white;
+    border: 2px solid rgba(255,255,255,.1);
+    outline: none;
+    width: 100%;
+
+    &:hover{
+        border: 2px solid rgba(255,255,255,.3);
+    }
+
+    &:focus{
+        border: 2px solid rgba(255,255,255,.5);
+    }
+
+    &::-webkit-file-upload-button {
+        background: #1d202d;
+        color: white;
+        outline: none;
+        border: none;
+        margin-right: 1rem;
+    }
+`;
+
+export const AddSelect = styled.select`
+    width: 100%;
+    background: none;
+    color: white;
+    border-radius: 30px;
+    border: 2px solid rgba(255,255,255,.1);
+    outline: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+`;
+
+export const AddOption = styled.option`
+    background: #1d202d;
+    color: white;
+
+    &:focus, &:hover, &:active{
+        background: white !important;
+        color: black !important;
+        outline: none;
+    }
+`;
+
+export const AddTextArea = styled.textarea`
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    background: none;
+    color: white;
+    border: 2px solid rgba(255,255,255,.1);
+    outline: none;
+    width: 100%;
+
+    &:hover{
+        border: 2px solid rgba(255,255,255,.3);
+    }
+
+    &:focus{
+        border: 2px solid rgba(255,255,255,.5);
     }
 `;

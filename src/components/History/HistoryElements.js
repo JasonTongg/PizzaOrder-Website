@@ -39,7 +39,7 @@ export const TableHeader = styled.div`
 
 export const HeaderItem = styled.p`
     font-size: 1.3rem;
-    width: 120px;
+    width: 220px;
     text-align: center;
     color: #999999;
 
@@ -50,7 +50,7 @@ export const HeaderItem = styled.p`
 
 export const HeaderItems = styled.p`
     font-size: 1.3rem;
-    width: 120px;
+    width: 220px;
     text-align: center;
     color: white;
 

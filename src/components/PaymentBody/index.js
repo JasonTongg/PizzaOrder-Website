@@ -50,7 +50,7 @@ const PaymentBody = () => {
       <TextH1>Payment Methods</TextH1>
       <RadioForm>
         <InputContainer>
-          <RadioInput type="radio" id="bca" name="paymentMethod"></RadioInput>
+          <RadioInput type="radio" id="bca" name="paymentMethod" required></RadioInput>
           <RadioLabel for="bca"><RadioLabelImage src={bca}></RadioLabelImage></RadioLabel>
         </InputContainer>
         <InputContainer>

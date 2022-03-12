@@ -11,6 +11,8 @@ import {
   ProductDesc,
   ProductPrice,
   ProductMore,
+  Popup,
+  TextPop
 } from './ProductsElements';
 import {
   HeroBtn
@@ -60,6 +62,13 @@ const Products = ({ heading, data1,data2, list }) => {
     getProducts();
   }
 
+  const Pop = () => {
+    document.querySelector(".popupstatus").style.display = "flex";
+    setTimeout((e) => {
+      document.querySelector(".popupstatus").style.display = "none";
+    }, 3000);
+  }
+
   return (
     <ProductsContainer>
       <ProductsHeading>{heading}</ProductsHeading>
@@ -75,6 +84,7 @@ const Products = ({ heading, data1,data2, list }) => {
                   <ProductPrice>Rp. {product.price},-</ProductPrice>
                   <HeroBtn onClick={(e) => {
                     let cek;
+                    Pop();
                     cek = products.find((item) => item.name === product.name);
                     if(cek===undefined){
                       setName(product.name);
@@ -100,6 +110,9 @@ const Products = ({ heading, data1,data2, list }) => {
         })}
       </ProductWrapper>
       <ProductMore to="list">See More</ProductMore>
+      <Popup className='popupstatus'>
+        <TextPop>Product Successfully Added</TextPop>
+      </Popup>
     </ProductsContainer>
   );
 };
