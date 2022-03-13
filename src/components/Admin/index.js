@@ -1,9 +1,16 @@
-import {BodyContainer, InnerContainer, ContainerHeader, InfoContainer, BigInfoContainer, SmallInfoContainer, CenterInfoContainer, TextP, TextP2, Persentage, Dot, DotRed, DotGreen, PersentageResult, BigText, TextP3, TableHeader, TableHeaderItem, TableRowItem, ProfitContainer, ProfitItem, DotBlue, DotRedd, TableOverflow, TableContainer, TextP4, Container, ZeroContainer, AddUpdateContainer, ZeroHeader, ZeroTableHeader, ZeroItem, ZeroTable, ZeroItems, AddForm, AddLabel, AddInput, AddFormItem, AddSelect, AddOption, AddTextArea, AddLabel1} from './AdminElements';
+import {BodyContainer, InnerContainer, ContainerHeader, InfoContainer, BigInfoContainer, SmallInfoContainer, CenterInfoContainer, TextP, TextP2, Persentage, Dot, DotRed, DotGreen, PersentageResult, BigText, TextP3, TableHeader, TableHeaderItem, TableRowItem, ProfitContainer, ProfitItem, DotBlue, DotRedd, TableOverflow, TableContainer, TextP4, Container, ZeroContainer, AddUpdateContainer, ZeroHeader, ZeroTableHeader, ZeroItem, ZeroTable, ZeroItems, AddForm, AddLabel, AddInput, AddFormItem, AddSelect, AddOption, AddTextArea, AddLabel1, AddButton, Popup, TextPop, DotPurple} from './AdminElements';
 import React from 'react';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 
 const Admin = () => {
+
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [qty, setQty] = useState('');
+  const [desc, setDesc] = useState('');
+  const [image, setImage] = useState('');
+  const [type, setType] = useState('');
 
   const [products, setProduct] = useState([]);
 
@@ -31,8 +38,10 @@ const Admin = () => {
   let PizzaOrder=0;
   let DrinksOrder=0;
   let SweetsOrder=0;
+  let PastaOrder=0;
   let NewYear=0;
   let Pizzaria=0;
+  let Chinese=0;
   let Profit=0;
   products.forEach((item, index) => {
     JumlahProduct += item.qty;
@@ -47,12 +56,18 @@ const Admin = () => {
     else if(item.alt === "Dessert"){
       SweetsOrder+= item.qty;
     }
+    else if(item.alt === "Pasta"){
+      PastaOrder+= item.qty;
+    }
 
     if(item.diskon === "NewYear"){
       NewYear+=item.qty;
     }
     else if(item.diskon === "Pizzaria0303"){
       Pizzaria+=item.qty;
+    }
+    else if(item.diskon === "ChineseNewYear"){
+      Chinese+=item.qty;
     }
   });
 
@@ -80,6 +95,14 @@ const Admin = () => {
 
   let Persen = (jumlah) => {
     return (jumlah/JumlahProduct)*100;
+  }
+
+  const Pop = (text) => {
+    document.querySelector(".popuptext").innerHTML = text;
+    document.querySelector(".popupstatus").style.display = "flex";
+    setTimeout((e) => {
+      document.querySelector(".popupstatus").style.display = "none";
+    }, 3000);
   }
 
   return (
@@ -125,6 +148,13 @@ const Admin = () => {
                 <PersentageResult>{Math.round(Persen(SweetsOrder))}%</PersentageResult>
               </Persentage>
             </SmallInfoContainer>
+            <SmallInfoContainer>
+              <TextP>Pasta Order</TextP>
+              <Persentage>
+                <DotPurple></DotPurple>
+                <PersentageResult>{Math.round(Persen(PastaOrder))}%</PersentageResult>
+              </Persentage>
+            </SmallInfoContainer>
           </BigInfoContainer>
           <CenterInfoContainer>
             <TextP2>Total Product Order</TextP2>
@@ -146,9 +176,16 @@ const Admin = () => {
               </Persentage>
             </SmallInfoContainer>
             <SmallInfoContainer>
-              <TextP>No Voucher</TextP>
+              <TextP>ChineseYear Voucher</TextP>
               <Persentage>
                 <DotGreen></DotGreen>
+                <PersentageResult>{Math.round(Persen(Chinese))}%</PersentageResult>
+              </Persentage>
+            </SmallInfoContainer>
+            <SmallInfoContainer>
+              <TextP>No Voucher</TextP>
+              <Persentage>
+                <DotPurple></DotPurple>
                 <PersentageResult>{Math.round(100 - Persen(Pizzaria) - Persen(NewYear))}%</PersentageResult>
               </Persentage>
             </SmallInfoContainer>
@@ -187,6 +224,14 @@ const Admin = () => {
               <TableRowItem>Rp. {cariTotal(`${item.name}`)},-</TableRowItem>
             </TableHeader>
           ))}
+          <TextP4>Pasta Order</TextP4>
+          {lists.filter((item) => cariQty(`${item.name}`)!==0).filter((item) => item.alt === "Pasta").map((item) => (
+            <TableHeader>
+              <TableRowItem>{item.name}</TableRowItem>
+              <TableRowItem>{cariQty(`${item.name}`)} pcs</TableRowItem>
+              <TableRowItem>Rp. {cariTotal(`${item.name}`)},-</TableRowItem>
+            </TableHeader>
+          ))}
         </TableOverflow>
       </TableContainer>
       <Container>
@@ -205,18 +250,20 @@ const Admin = () => {
         </ZeroContainer>
         <AddUpdateContainer>
           <ZeroHeader>Add Product</ZeroHeader>
-          <AddForm onSubmit={''}>
+          <AddForm>
             <AddFormItem>
               <AddLabel for="name">Name</AddLabel>
-              <AddInput type="text" id="name"></AddInput>
+              <AddInput type="text" id="name" onChange={(e) => setName(e.target.value)} required></AddInput>
             </AddFormItem>
             <AddFormItem>
               <AddLabel for="price">Price</AddLabel>
-              <AddInput type="text" id="price"></AddInput>
+              <AddInput type="text" id="price" onChange={(e) => setPrice(e.target.value)}required></AddInput>
             </AddFormItem>
             <AddFormItem>
               <AddLabel>Type</AddLabel>
-              <AddSelect>
+              <AddSelect id="type" onChange={(e) => {
+                setType(e.target.value);
+              }} required>
                 <AddOption>Pizza</AddOption>
                 <AddOption>Drinks</AddOption>
                 <AddOption>Dessert</AddOption>
@@ -224,15 +271,43 @@ const Admin = () => {
             </AddFormItem>
             <AddFormItem>
               <AddLabel1 for="desc">Description</AddLabel1>
-              <AddTextArea rows="4" id="desc"></AddTextArea>
+              <AddTextArea rows="4" id="desc" onChange={(e) => setDesc(e.target.value)} required></AddTextArea>
             </AddFormItem>
             <AddFormItem>
-              <AddLabel for="price">Image</AddLabel>
-              <AddInput type="file" name="myImage" accept="image/png, image/gif, image/jpeg"></AddInput>
+              <AddLabel for="image">Image</AddLabel>
+              <AddInput id="image" type="file" name="myImage" accept="image/png, image/gif, image/jpeg" onChange={(e) => setImage("https://i.pinimg.com/736x/d9/ad/a7/d9ada78c8353c9597d823aae8031a052.jpg")} required></AddInput>
+            </AddFormItem>
+            <AddFormItem>
+              <AddButton type="submit" value="Add Product" onClick={(e) => {
+                e.preventDefault();
+                if(document.querySelector("#image").value!=="" && document.querySelector("#desc").value !== "" && document.querySelector("#price").value!=="" && document.querySelector("#name").value!==""){
+                  document.querySelector("#image").value="";
+                  document.querySelector("#type").value = "";
+                  document.querySelector("#desc").value="";
+                  document.querySelector("#price").value="";
+                  document.querySelector("#name").value="";
+                  axios.post('http://localhost:5000/list', {
+                    name: name,
+                    price: price,
+                    qty: 1,
+                    description: desc,
+                    alt: type===""?"Pizza":type,
+                    image: image,
+                    button: "Order Now ->",
+                  })
+                  Pop("Product has been added");
+                  getProducts();
+                }
+                else{
+                  Pop("Please complete the form");
+                }
+                
+              }}></AddButton>
             </AddFormItem>
           </AddForm>
         </AddUpdateContainer>
       </Container>
+      <Popup className='popupstatus'><TextPop className='popuptext'></TextPop></Popup>
     </BodyContainer>
   );
 };

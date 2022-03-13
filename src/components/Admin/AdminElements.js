@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
+import { keyframes } from "styled-components";
+import bg from '../../images/pop.jpg';
 
 export const BodyContainer = styled.body`
     background: #121421;
@@ -33,7 +35,7 @@ export const InfoContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1.5rem;
 
-    @media only screen and (max-width: 1100px){
+    @media only screen and (max-width: 1370px){
         grid-template-columns: 1fr 1fr;
         height: 480px;
     }
@@ -83,7 +85,7 @@ export const CenterInfoContainer = styled.div`
     text-align: center;
     align-items: center;
 
-    @media only screen and (max-width: 1100px){
+    @media only screen and (max-width: 1370px){
         grid-column: 1/ -1;
         grid-row: 1/ 2;
     }
@@ -156,6 +158,14 @@ export const Dot = styled.div`
     height: 20px;
     border-radius: 50%;
     background: #eec956;
+    margin-right: .5rem;
+`;
+
+export const DotPurple = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #b658f5;
     margin-right: .5rem;
 `;
 
@@ -291,6 +301,10 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     width: 90%;
+
+    @media only screen and (max-width: 1000px){
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const ZeroContainer = styled.div`
@@ -421,6 +435,23 @@ export const AddInput = styled.input`
     }
 `;
 
+export const AddButton = styled.input`
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    background: none;
+    color: white;
+    border: 2px solid rgba(255,255,255,.1);
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+
+    &:hover{
+        background: white;
+        color: black;
+    }
+`;
+
 export const AddSelect = styled.select`
     width: 100%;
     background: none;
@@ -465,4 +496,45 @@ export const AddTextArea = styled.textarea`
     &:focus{
         border: 2px solid rgba(255,255,255,.5);
     }
+`;
+
+let example = keyframes`
+    from {
+        right: -10rem;
+        bottom: 1rem;
+        opacity: 1;
+    }
+    to {
+        right: 1rem;
+        bottom: 1rem;
+        opacity: 1;
+    }
+`;
+
+export const Popup = styled.div`
+    position: fixed;
+    right: -13rem;
+    bottom: 1rem;
+    opacity: 1;
+    height: 120px;
+    width: 250px;
+    background: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,.5)) ,url(${bg});
+    background-size: cover;
+    background-posisition: center;
+    // background: #cc4d02;
+    animation-name: ${example};
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    display: none;
+    border-radius: 15px;
+    box-shadow: 0rem 0rem .7rem white;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    text-align: center;
+`;
+
+export const TextPop = styled.p`
+    font-size: 1.2rem;
+    color: white;
 `;

@@ -139,6 +139,19 @@ const PaymentBody = () => {
                 document.querySelector('.status').innerHTML = "Discount 40%";
                 document.querySelector('.total').innerHTML = `Total: Rp. ${total},-`;
               }
+              else if(e.target.value === "ChineseNewYear"){
+                total=0;
+                products.forEach((item) => {
+                  total+=(item.price * item.qty);
+                });
+                total= total + total/30 + 15000;
+                let diskon=total*30/100;
+                total=total-diskon;
+                total=Math.round(total);
+                
+                document.querySelector('.status').innerHTML = "Discount 30%";
+                document.querySelector('.total').innerHTML = `Total: Rp. ${total},-`;
+              }
               else{
                 document.querySelector('.status').innerHTML = "Not Available";
               }

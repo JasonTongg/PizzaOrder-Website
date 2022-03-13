@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import {Container, ContainerBlack, OverflowHidden} from './index';
 
 const contact = () => {
+    
     return (
         <OverflowHidden>
             <GlobalStyle />
