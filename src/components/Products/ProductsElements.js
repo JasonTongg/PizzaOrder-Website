@@ -47,7 +47,7 @@ export const Popup = styled.div`
   background-posisition: center;
   // background: #cc4d02;
   animation-name: ${example};
-  animation-duration: 3s;
+  animation-duration: 1s;
   animation-iteration-count: infinite;
   display: none;
   border-radius: 15px;

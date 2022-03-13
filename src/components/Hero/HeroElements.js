@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import ImgBg from '../../images/pizza-3.jpeg';
+import { NavLink as Link } from 'react-router-dom';
 
 export const HeroContainer = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
@@ -64,6 +65,28 @@ export const HeroBtn = styled.button`
   background: none;
   text-align: center;
   margin-bottom: 1rem;
+
+  &:hover {
+    background: #cc4d02;
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    border-bottom: 1px solid #cc4d02;
+    transform: translateX(.2rem);
+  }
+`;
+
+export const Btn = styled(Link)`
+  font-size: 1.4rem;
+  padding: .6rem 1.5rem;
+  border: none;
+  border-bottom: 1px solid white;
+  color: #fff;
+  transition: 0.2s ease-out;
+  background: none;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 100;
+  text-decoration: none;
 
   &:hover {
     background: #cc4d02;

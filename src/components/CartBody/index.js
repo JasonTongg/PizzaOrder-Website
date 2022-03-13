@@ -23,34 +23,43 @@ const Products = ({ data, list }) => {
   }
 
   let total=0;
+  let cek=false;
 
   return (
     <ProductsContainer>
       <ProductWrapper>
         {products.map((product, index) => (
-            <ProductCard key={index}>
-              <ProductLinear></ProductLinear>
-              <ProductQtyContainer>
-                <ProductQty>{product.qty}</ProductQty>
-              </ProductQtyContainer>
-              <ProductInfo>
-                <ProductTitle>{product.name}</ProductTitle>
-                <ProductPrice>Rp. {product.price * product.qty},-</ProductPrice>
-                <ProductButton>
-                  <ProductDelete onClick={(e) => deleteProduct(product.id)}>Delete</ProductDelete>
-                </ProductButton>
-              </ProductInfo>
-            </ProductCard>
+          <ProductCard key={index}>
+            <ProductLinear></ProductLinear>
+            <ProductQtyContainer>
+              <ProductQty>{product.qty}</ProductQty>
+            </ProductQtyContainer>
+            <ProductInfo>
+              <ProductTitle>{product.name}</ProductTitle>
+              <ProductPrice>Rp. {product.price * product.qty},-</ProductPrice>
+              <ProductButton>
+                <ProductDelete onClick={(e) => deleteProduct(product.id)}>Delete</ProductDelete>
+              </ProductButton>
+            </ProductInfo>
+          </ProductCard>
         ))}
       </ProductWrapper>
       <Line></Line>
       <InfoContainer>
-        <TextHeader>Total</TextHeader>
         {products.forEach((item) => {
-          total+=(item.price * item.qty);
+            total+=(item.price * item.qty);
         })}
-        <TextP>Rp. {total},-</TextP>
-        <Btn className="btn" to="/payment">Next</Btn>
+        <TextHeader>{total!==0?`Total`:'Cart is Empty'}</TextHeader>
+        <TextP>{total!==0?`Rp. ${total},-`:null}</TextP>
+        {products.map((item) => {
+          if(total!==0 && cek===false){
+            cek=true;
+            return(
+              <Btn className="btn" to="/payment">Next</Btn>
+            )
+          }
+          return null;
+        })}
       </InfoContainer>
     </ProductsContainer>
   );

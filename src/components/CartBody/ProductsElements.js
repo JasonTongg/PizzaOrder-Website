@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 
 export const ProductsContainer = styled.div`
-  min-height: 100vh;
+  min-height: calc(100vh - 329px);
   padding: 5rem;
   background: #150f0f;
   color: #fff;

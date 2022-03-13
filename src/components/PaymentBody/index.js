@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadioLabel, RadioInput, RadioForm, InputContainer, RadioLabelImage, Line, Container, PaymentIcon, PaymentStatus, TextH1, PaymentStatusInfo, PaymentStatusText, TextP, HargaNominal, TextH2, PayBtn, PopupContainer, PopupItem, PopupText, PopupImage, TextH1Black, TextPBlack, PopupIcon, PaymentVoucher, VoucherInput, VoucherStatus } from './PaymentBodyElements';
+import { RadioLabel, RadioInput, RadioForm, InputContainer, RadioLabelImage, Line, Container, PaymentIcon, PaymentStatus, TextH1, PaymentStatusInfo, PaymentStatusText, TextP, HargaNominal, TextH2, PayBtn, PopupContainer, PopupItem, PopupText, PopupImage, TextH1Black, TextPBlack, PopupIcon, PaymentVoucher, VoucherInput, VoucherStatus, Popup, TextPop } from './PaymentBodyElements';
 import bca from '../../images/bca.png';
 import bni from '../../images/bni.png';
 import mandiri from '../../images/mandiri.png';
@@ -45,43 +45,51 @@ const PaymentBody = () => {
     return document.querySelector(".voucher").value;
   }
 
+  const Pop = () => {
+    document.querySelector(".popupstatus").style.display = "flex";
+    setTimeout((e) => {
+      document.querySelector(".popupstatus").style.display = "none";
+    }, 2000);
+  }
+
   return (
     <Container>
       <TextH1>Payment Methods</TextH1>
       <RadioForm>
         <InputContainer>
-          <RadioInput type="radio" id="bca" name="paymentMethod" required></RadioInput>
+          <RadioInput type="radio" id="bca" name="paymentMethod" required value="bca"></RadioInput>
           <RadioLabel for="bca"><RadioLabelImage src={bca}></RadioLabelImage></RadioLabel>
         </InputContainer>
         <InputContainer>
-          <RadioInput type="radio" id="mandiri" name="paymentMethod"></RadioInput>
+          <RadioInput type="radio" id="mandiri" name="paymentMethod" value="mandiri"></RadioInput>
           <RadioLabel for="mandiri"><RadioLabelImage src={mandiri}></RadioLabelImage></RadioLabel>
         </InputContainer>
         <InputContainer>
-          <RadioInput type="radio" id="bri" name="paymentMethod"></RadioInput>
+          <RadioInput type="radio" id="bri" name="paymentMethod" value="bri"></RadioInput>
           <RadioLabel for="bri"><RadioLabelImage src={bri}></RadioLabelImage></RadioLabel>
         </InputContainer>
         <InputContainer>
-          <RadioInput type="radio" id="bni" name="paymentMethod"></RadioInput>
+          <RadioInput type="radio" id="bni" name="paymentMethod" value="bni"></RadioInput>
           <RadioLabel for="bni"><RadioLabelImage src={bni}></RadioLabelImage></RadioLabel>
         </InputContainer>
         <InputContainer>
-          <RadioInput type="radio" id="ovo" name="paymentMethod"></RadioInput>
+          <RadioInput type="radio" id="ovo" name="paymentMethod" value="ovo"></RadioInput>
           <RadioLabel for="ovo"><RadioLabelImage src={ovo}></RadioLabelImage></RadioLabel>
         </InputContainer>
         <InputContainer>
-          <RadioInput type="radio" id="gopay" name="paymentMethod"></RadioInput>
+          <RadioInput type="radio" id="gopay" name="paymentMethod" value="gopay"></RadioInput>
           <RadioLabel for="gopay"><RadioLabelImage src={gopay}></RadioLabelImage></RadioLabel>
         </InputContainer>
         <InputContainer>
-          <RadioInput type="radio" id="shopeepay" name="paymentMethod"></RadioInput>
+          <RadioInput type="radio" id="shopeepay" name="paymentMethod" value="shopeepay"></RadioInput>
           <RadioLabel for="shopeepay"><RadioLabelImage src={shopeepay}></RadioLabelImage></RadioLabel>
         </InputContainer>
         <InputContainer>
-          <RadioInput type="radio" id="dana" name="paymentMethod"></RadioInput>
+          <RadioInput type="radio" id="dana" name="paymentMethod" value="dana"></RadioInput>
           <RadioLabel for="dana"><RadioLabelImage src={dana}></RadioLabelImage></RadioLabel>
         </InputContainer>
       </RadioForm>
+      {console.log(document.querySelector('input[name="paymentMethod"]:checked')?.value)}
       <Line></Line>
       <PaymentStatus>
         <TextH1>Payment Status</TextH1>
@@ -96,20 +104,25 @@ const PaymentBody = () => {
         <PaymentStatusInfo>
           <TextH2 className='total'>Total: Rp. {total + total/10 + 15000},-</TextH2>
           <PayBtn onClick={(e) => {
-            products.forEach((item) => {
-              deleteProduct(item.id);
-              let popup = document.querySelector('.popup');
-              e.preventDefault();
-              popup.style.display = "flex";
-              console.log(cekDiskon());
-              axios.post('http://localhost:5000/order', {
-                  name: item.name,
-                  price: item.price,
-                  qty: item.qty,
-                  alt: item.alt,
-                  diskon: cekDiskon()
+            if(document.querySelector('input[name="paymentMethod"]:checked')?.value!==undefined){
+              products.forEach((item) => {
+                deleteProduct(item.id);
+                let popup = document.querySelector('.popup');
+                e.preventDefault();
+                popup.style.display = "flex";
+                console.log(cekDiskon());
+                axios.post('http://localhost:5000/order', {
+                    name: item.name,
+                    price: item.price,
+                    qty: item.qty,
+                    alt: item.alt,
+                    diskon: cekDiskon()
+                })
               })
-            })
+            }
+            else{
+              Pop();
+            }
           }}>Pay</PayBtn>
         </PaymentStatusInfo>
         <PaymentVoucher>
@@ -169,6 +182,9 @@ const PaymentBody = () => {
           </PopupText>
         </PopupItem>
       </PopupContainer>
+      <Popup className='popupstatus'>
+        <TextPop>Please complete the form</TextPop>
+      </Popup>
     </Container>
   );
 };

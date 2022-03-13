@@ -66,7 +66,7 @@ const Products = ({ heading, data1,data2, list }) => {
     document.querySelector(".popupstatus").style.display = "flex";
     setTimeout((e) => {
       document.querySelector(".popupstatus").style.display = "none";
-    }, 3000);
+    }, 1000);
   }
 
   return (
