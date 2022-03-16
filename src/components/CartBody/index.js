@@ -1,5 +1,5 @@
 import {
-  ProductsContainer, ProductWrapper, ProductTitle, ProductCard, ProductInfo, ProductPrice,Line, TextHeader, TextP, InfoContainer, ProductQty, ProductLinear, ProductQtyContainer,  ProductButton
+  ProductsContainer, ProductWrapper, ProductTitle, ProductCard, ProductInfo, ProductPrice, Line, TextHeader, TextP, InfoContainer, ProductQty, ProductLinear, ProductQtyContainer,  ProductButton
 } from './ProductsElements';
 
 import {Btn, BtnDelete} from '../SmallElement/Button';

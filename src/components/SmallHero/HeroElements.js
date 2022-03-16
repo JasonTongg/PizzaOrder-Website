@@ -44,23 +44,3 @@ export const HeroH1 = styled.h1`
   font-weight: 100;
   text-align: center;
 `;
-
-export const HeroBtn = styled.button`
-  font-size: 1.4rem;
-  padding: .2rem 1.5rem;
-  border: none;
-  border-bottom: 1px solid white;
-  color: #fff;
-  transition: 0.2s ease-out;
-  background: none;
-  text-align: center;
-
-  &:hover {
-    background: #ffc500;
-    transition: 0.2s ease-out;
-    cursor: pointer;
-    color: #000;
-    border-bottom: 1px solid black;
-    transform: translateX(.2rem);
-  }
-`;

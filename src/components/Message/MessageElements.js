@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { NavLink as Link } from 'react-router-dom';
 
 export const BodyContainer = styled.body`
     background: #121421;

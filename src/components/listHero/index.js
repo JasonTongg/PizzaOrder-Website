@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../Navbar(back)';
 import Sidebar from '../Sidebar';
 import {
-  HeroContainer,
-  HeroContent,
-  HeroItems,
-  HeroH1,
-  HeroP
+  HeroContainer, HeroContent, HeroItems, HeroH1, HeroP
 } from './HeroElements';
 
 const ListHero = () => {

@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-import { NavLink as Link } from 'react-router-dom';
-import { keyframes } from "styled-components";
-import bg from '../../images/pop.jpg';
 
 export const ProductsContainer = styled.div`
   /* width: 100vw; */
@@ -20,46 +17,6 @@ export const ProductWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
-`;
-
-let example = keyframes`
-  from {
-    right: -10rem;
-    bottom: 1rem;
-    opacity: 1;
-  }
-  to {
-    right: 1rem;
-    bottom: 1rem;
-    opacity: 1;
-  }
-`;
-
-export const Popup = styled.div`
-  position: fixed;
-  right: -13rem;
-  bottom: 1rem;
-  opacity: 1;
-  height: 120px;
-  width: 250px;
-  background: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,.5)) ,url(${bg});
-  background-size: cover;
-  background-posisition: center;
-  // background: #cc4d02;
-  animation-name: ${example};
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  display: none;
-  border-radius: 15px;
-  box-shadow: 0rem 0rem .7rem white;
-  align-items: center;
-  justify-content: center;
-  padding: .5rem;
-  text-align: center;
-`;
-
-export const TextPop = styled.p`
-  font-size: 1.2rem;
 `;
 
 export const ProductCard = styled.form`

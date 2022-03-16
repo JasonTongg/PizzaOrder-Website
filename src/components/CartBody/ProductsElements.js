@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { NavLink as Link } from 'react-router-dom';
 
 export const ProductsContainer = styled.div`
   min-height: calc(100vh - 329px);
@@ -93,15 +92,6 @@ export const ProductButton = styled.div`
   width: 100%;
   border-radius: 15px;
   margin-top: 1rem;
-`;
-
-export const ProductsHeading = styled.h1`
-  font-size: 2rem;
-  text-align: center;
-
-  @media only screen and (max-width: 700px){
-    font-size: 1.8rem;
-  }
 `;
 
 export const Line = styled.hr`

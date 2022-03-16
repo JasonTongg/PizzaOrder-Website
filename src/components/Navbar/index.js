@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavLink, NavIcon, Bars , NavItem, Cart, Phone, Menu} from './NavbarElements';
+import { Nav, NavLink, NavIcon, Bars , NavItem, Phone, Menu} from './NavbarElements';
 
 const Navbar = ({ toggle }) => {
   return (

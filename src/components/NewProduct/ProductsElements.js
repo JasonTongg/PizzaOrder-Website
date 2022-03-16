@@ -36,57 +36,14 @@ export const ProductWrapper = styled.div`
     outline: none;
   }
 
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #cc4d02; 
     border-radius: 15px;
   }
-  
-  /* Handle on hover */
+
   ::-webkit-scrollbar-thumb:hover {
     background: #cc6d35; 
   }
-`;
-
-let example = keyframes`
-  from {
-    right: -10rem;
-    bottom: 1rem;
-    opacity: 1;
-  }
-  to {
-    right: 1rem;
-    bottom: 1rem;
-    opacity: 1;
-  }
-`;
-
-export const Popup = styled.div`
-  position: fixed;
-  right: -13rem;
-  bottom: 1rem;
-  opacity: 1;
-  height: 120px;
-  width: 250px;
-  background: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,.5)) ,url(${bg});
-  background-size: cover;
-  background-posisition: center;
-  // background: #cc4d02;
-  animation-name: ${example};
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  display: none;
-  border-radius: 15px;
-  box-shadow: 0rem 0rem .7rem white;
-  align-items: center;
-  justify-content: center;
-  padding: .5rem;
-  text-align: center;
-  z-index: 1000;
-`;
-
-export const TextPop = styled.p`
-  font-size: 1.2rem;
 `;
 
 export const ProductCard = styled.form`
@@ -106,26 +63,6 @@ export const ProductsHeading = styled.h1`
   text-align: center;
   margin-bottom: 5rem;
   align-self: center;
-`;
-
-export const ProductMore = styled(Link)`
-  font-size: 1.4rem;
-  padding: .2rem 1.5rem;
-  border: none;
-  color: #000;
-  transition: 0.2s ease-out;
-  background: white;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 20px;
-  margin-top: 20px;
-  text-decoration: none;
-
-  &:hover {
-    background: #cc4d02;
-    transition: 0.2s ease-out;
-    color: white;
-  }
 `;
 
 export const ProductTitle = styled.h2`
@@ -149,20 +86,4 @@ export const ProductDesc = styled.p`
 export const ProductPrice = styled.p`
   margin-bottom: 1rem;
   font-size: 2rem;
-`;
-
-export const ProductButton = styled.button`
-  font-size: 1rem;
-  padding: 1rem 4rem;
-  border: none;
-  background: #e31837;
-  color: #fff;
-  transition: 0.2 ease-out;
-
-  &:hover {
-    background: #ffc500;
-    transition: 0.2s ease-out;
-    cursor: pointer;
-    color: #000;
-  }
 `;

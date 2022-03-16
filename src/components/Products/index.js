@@ -1,21 +1,12 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {
-  ProductsContainer,
-  ProductWrapper,
-  ProductsHeading,
-  ProductTitle,
-  ProductCard,
-  ProductImg,
-  ProductInfo,
-  ProductDesc,
-  ProductPrice,
-  Popup,
-  TextPop
+  ProductsContainer, ProductWrapper, ProductsHeading, ProductTitle, ProductCard, ProductImg, ProductInfo, ProductDesc, ProductPrice,
 } from './ProductsElements';
 import {
   HeroBtn, BtnMore
 } from '../SmallElement/Button';
+import {Popup1, TextPop, Pop} from "../SmallElement/Popup"
 
 const Products = ({ heading, data1,data2, list }) => {
 
@@ -34,17 +25,6 @@ const Products = ({ heading, data1,data2, list }) => {
     setProduct(response.data);
   }
 
-  const [lists, setList] = useState([]);
-
-  useEffect(() => {
-    getList();
-  }, [])
-
-  const getList = async () => {
-    const response = await axios.get('http://localhost:5000/list');
-    setList(response.data);
-  }
-
   const saveProduct = async (e) => {
     e.preventDefault();
     await axios.post('http://localhost:5000/cart', {
@@ -61,11 +41,15 @@ const Products = ({ heading, data1,data2, list }) => {
     getProducts();
   }
 
-  const Pop = () => {
-    document.querySelector(".popupstatus").style.display = "flex";
-    setTimeout((e) => {
-      document.querySelector(".popupstatus").style.display = "none";
-    }, 1000);
+  const [lists, setList] = useState([]);
+
+  useEffect(() => {
+    getList();
+  }, [])
+
+  const getList = async () => {
+    const response = await axios.get('http://localhost:5000/list');
+    setList(response.data);
   }
 
   return (
@@ -83,7 +67,7 @@ const Products = ({ heading, data1,data2, list }) => {
                   <ProductPrice>Rp. {product.price},-</ProductPrice>
                   <HeroBtn onClick={(e) => {
                     let cek;
-                    Pop();
+                    Pop(1000);
                     cek = products.find((item) => item.name === product.name);
                     if(cek===undefined){
                       setName(product.name);
@@ -109,9 +93,9 @@ const Products = ({ heading, data1,data2, list }) => {
         })}
       </ProductWrapper>
       <BtnMore to="list">See More</BtnMore>
-      <Popup className='popupstatus'>
+      <Popup1 className='popupstatus'>
         <TextPop>Product Successfully Added</TextPop>
-      </Popup>
+      </Popup1>
     </ProductsContainer>
   );
 };

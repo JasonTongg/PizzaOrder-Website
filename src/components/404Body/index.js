@@ -1,7 +1,7 @@
-import {Illus, BodyContainer, Left, Right, TextHeader, TextP, Span, IllusContainer, IllusHeader} from './ErrorElements';
 import React from 'react';
-import IllusImage from '../../images/404.png';
+import {Illus, BodyContainer, Left, Right, TextHeader, TextP, Span, IllusContainer, IllusHeader} from './ErrorElements';
 import {BtnBrown} from '../SmallElement/Button'
+import IllusImage from '../../images/404.png';
 
 const err = () => {
   return (

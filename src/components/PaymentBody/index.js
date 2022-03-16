@@ -1,5 +1,7 @@
 import React from 'react';
-import { RadioLabel, RadioInput, RadioForm, InputContainer, RadioLabelImage, Line, Container, PaymentIcon, PaymentStatus, TextH1, PaymentStatusInfo, PaymentStatusText, TextP, HargaNominal, TextH2, PopupContainer, PopupItem, PopupText, PopupImage, TextH1Black, TextPBlack, PopupIcon, PaymentVoucher, VoucherInput, VoucherStatus, Popup, TextPop } from './PaymentBodyElements';
+import { RadioLabel, RadioInput, RadioForm, InputContainer, RadioLabelImage, Line, Container, PaymentIcon, PaymentStatus, TextH1, PaymentStatusInfo, PaymentStatusText, TextP, HargaNominal, TextH2, PopupContainer, PopupItem, PopupText, PopupImage, TextH1Black, TextPBlack, PopupIcon, PaymentVoucher, VoucherInput, VoucherStatus} from './PaymentBodyElements';
+import {Popup1, TextPop, Pop} from "../SmallElement/Popup";
+import {BtnV2} from '../SmallElement/Button';
 import bca from '../../images/bca.png';
 import bni from '../../images/bni.png';
 import mandiri from '../../images/mandiri.png';
@@ -11,7 +13,6 @@ import shopeepay from '../../images/shopeepay.png';
 import PopupImg from '../../images/popup.png';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import {BtnV2} from '../SmallElement/Button';
 
 const PaymentBody = () => {
   const [orders, setOrder] = useState([]);
@@ -44,13 +45,6 @@ const PaymentBody = () => {
   let total = HargaNominal();
   let cekDiskon = () => {
     return document.querySelector(".voucher").value;
-  }
-
-  const Pop = () => {
-    document.querySelector(".popupstatus").style.display = "flex";
-    setTimeout((e) => {
-      document.querySelector(".popupstatus").style.display = "none";
-    }, 2000);
   }
 
   return (
@@ -122,7 +116,7 @@ const PaymentBody = () => {
               })
             }
             else{
-              Pop();
+              Pop(1000);
             }
           }}>Pay</BtnV2>
         </PaymentStatusInfo>
@@ -183,9 +177,9 @@ const PaymentBody = () => {
           </PopupText>
         </PopupItem>
       </PopupContainer>
-      <Popup className='popupstatus'>
+      <Popup1 className='popupstatus'>
         <TextPop>Please complete the form</TextPop>
-      </Popup>
+      </Popup1>
     </Container>
   );
 };

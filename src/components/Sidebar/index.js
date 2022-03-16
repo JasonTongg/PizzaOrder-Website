@@ -1,11 +1,6 @@
 import React from 'react';
 import {
-  SidebarContainer,
-  Icon,
-  CloseIcon,
-  SidebarMenu,
-  SideBtnWrap,
-  SidebarLinkContainer
+  SidebarContainer, Icon, CloseIcon, SidebarMenu, SideBtnWrap, SidebarLinkContainer
 } from './SidebarElements';
 
 import {ShadowBtn} from '../SmallElement/Button'

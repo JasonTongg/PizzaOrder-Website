@@ -15,7 +15,6 @@ export const BodyContainer = styled.body`
     @media only screen and (max-width: 600px){
         padding: 1rem;
     }
-
 `;
 
 export const InnerContainer = styled.div`
@@ -119,9 +118,6 @@ export const TextP = styled.p`
         font-size: 1rem;
         margin: 0;
     }
-    // @media only screen and (max-width: 370px){
-    //     font-size: .8rem;
-    // }
 `;
 
 export const TextP4 = styled.p`
@@ -177,11 +173,6 @@ export const Dot = styled.div`
     border-radius: 50%;
     background: #eec956;
     margin-right: .5rem;
-
-    // @media only screen and (max-width: 370px){
-    //     width: 15px;
-    //     height: 15px;
-    // }
 `;
 
 export const DotPurple = styled.div`
@@ -190,11 +181,6 @@ export const DotPurple = styled.div`
     border-radius: 50%;
     background: #b658f5;
     margin-right: .5rem;
-
-    // @media only screen and (max-width: 370px){
-    //     width: 15px;
-    //     height: 15px;
-    // }
 `;
 
 export const DotRed = styled.div`
@@ -203,11 +189,6 @@ export const DotRed = styled.div`
     border-radius: 50%;
     background: #e47992;
     margin-right: .5rem;
-
-    // @media only screen and (max-width: 370px){
-    //     width: 15px;
-    //     height: 15px;
-    // }
 `;
 
 export const DotGreen = styled.div`
@@ -216,11 +197,6 @@ export const DotGreen = styled.div`
     border-radius: 50%;
     background: #37be9a;
     margin-right: .5rem;
-
-    // @media only screen and (max-width: 370px){
-    //     width: 15px;
-    //     height: 15px;
-    // }
 `;
 
 export const DotBlue = styled.div`
@@ -229,12 +205,7 @@ export const DotBlue = styled.div`
     border-radius: 50%;
     background: #6eb3d6;
     margin-right: 1rem;
-    
-//     @media only screen and (max-width: 370px){
-//         width: 15px;
-//         height: 15px;
-//     }
-// `;
+`;
 
 export const DotRedd = styled.div`
     width: 20px;
@@ -242,11 +213,6 @@ export const DotRedd = styled.div`
     border-radius: 50%;
     background: red;
     margin-right: 1rem;
-
-    // @media only screen and (max-width: 370px){
-    //     width: 15px;
-    //     height: 15px;
-    // }
 `;
 
 export const PersentageResult = styled.p`
@@ -548,45 +514,4 @@ export const AddTextArea = styled.textarea`
     &:focus{
         border: 2px solid rgba(255,255,255,.5);
     }
-`;
-
-let example = keyframes`
-    from {
-        right: -10rem;
-        bottom: 1rem;
-        opacity: 1;
-    }
-    to {
-        right: 1rem;
-        bottom: 1rem;
-        opacity: 1;
-    }
-`;
-
-export const Popup = styled.div`
-    position: fixed;
-    right: -13rem;
-    bottom: 1rem;
-    opacity: 1;
-    height: 120px;
-    width: 250px;
-    background: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,.5)) ,url(${bg});
-    background-size: cover;
-    background-posisition: center;
-    // background: #cc4d02;
-    animation-name: ${example};
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    display: none;
-    border-radius: 15px;
-    box-shadow: 0rem 0rem .7rem white;
-    align-items: center;
-    justify-content: center;
-    padding: .5rem;
-    text-align: center;
-`;
-
-export const TextPop = styled.p`
-    font-size: 1.2rem;
-    color: white;
 `;

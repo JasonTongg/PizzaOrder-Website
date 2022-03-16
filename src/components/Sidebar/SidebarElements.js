@@ -1,24 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
-import {FaCartPlus} from 'react-icons/fa';
-
-export const Cart = styled(FaCartPlus)`
-  font-size: 20px;
-  margin-left: .7rem;
-
-  @media screen and (max-width: 900px) {
-    font-size: 18px;
-  }
-
-  @media screen and (max-width: 600px) {
-    font-size: 16px;
-  }
-
-  @media screen and (max-width: 540px) {
-    display: none;
-  }
-`;
 
 export const SidebarContainer = styled.aside`
   position: fixed;

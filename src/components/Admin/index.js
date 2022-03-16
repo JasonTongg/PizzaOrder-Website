@@ -1,6 +1,7 @@
 import React from 'react';
-import {BodyContainer, InnerContainer, ContainerHeader, InfoContainer, BigInfoContainer, SmallInfoContainer, CenterInfoContainer, TextP, TextP2, Persentage, Dot, DotRed, DotGreen, PersentageResult, BigText, TextP3, TableHeader, TableHeaderItem, TableRowItem, ProfitContainer, ProfitItem, DotBlue, DotRedd, TableOverflow, TableContainer, TextP4, Container, ZeroContainer, AddUpdateContainer, ZeroHeader, ZeroTableHeader, ZeroItem, ZeroTable, ZeroItems, AddForm, AddLabel, AddInput, AddFormItem, AddSelect, AddOption, AddTextArea, AddLabel1, Popup, TextPop, DotPurple} from './AdminElements';
+import {BodyContainer, InnerContainer, ContainerHeader, InfoContainer, BigInfoContainer, SmallInfoContainer, CenterInfoContainer, TextP, TextP2, Persentage, Dot, DotRed, DotGreen, PersentageResult, BigText, TextP3, TableHeader, TableHeaderItem, TableRowItem, ProfitContainer, ProfitItem, DotBlue, DotRedd, TableOverflow, TableContainer, TextP4, Container, ZeroContainer, AddUpdateContainer, ZeroHeader, ZeroTableHeader, ZeroItem, ZeroTable, ZeroItems, AddForm, AddLabel, AddInput, AddFormItem, AddSelect, AddOption, AddTextArea, AddLabel1, DotPurple} from './AdminElements';
 import {BlackWhiteButton} from "../SmallElement/Button"
+import {Popup3, TextPop, PopText} from "../SmallElement/Popup"
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 
@@ -99,14 +100,6 @@ const Admin = () => {
     return (jumlah/JumlahProduct)*100;
   }
 
-  const Pop = (text) => {
-    document.querySelector(".popuptext").innerHTML = text;
-    document.querySelector(".popupstatus").style.display = "flex";
-    setTimeout((e) => {
-      document.querySelector(".popupstatus").style.display = "none";
-    }, 3000);
-  }
-
   return (
     <BodyContainer>
       <ContainerHeader>Admin Panel</ContainerHeader>
@@ -132,7 +125,7 @@ const Admin = () => {
             <SmallInfoContainer>
               <TextP>Pizza Order</TextP>
               <Persentage>
-                <Dot></Dot>
+                <Dot data-color="brown" className="dotcolor"></Dot>
                 <PersentageResult>{Math.round(Persen(PizzaOrder))}%</PersentageResult>
               </Persentage>
             </SmallInfoContainer>
@@ -297,19 +290,18 @@ const Admin = () => {
                     image: image,
                     button: "Order Now ->",
                   })
-                  Pop("Product has been added");
+                  PopText(3000, "Product has been added");
                   getProducts();
                 }
                 else{
-                  Pop("Please complete the form");
+                  PopText(3000, "Please complete the form");
                 }
-                
               }}></BlackWhiteButton>
             </AddFormItem>
           </AddForm>
         </AddUpdateContainer>
       </Container>
-      <Popup className='popupstatus'><TextPop className='popuptext'></TextPop></Popup>
+      <Popup3 className='popupstatus'><TextPop className='popuptext'></TextPop></Popup3>
     </BodyContainer>
   );
 };

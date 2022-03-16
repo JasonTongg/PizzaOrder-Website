@@ -1,10 +1,10 @@
 import React from 'react';
 import {useState} from 'react'
 import {
-  Form, FormItem, FormLabel, FormInput, FormBody, FormTextArea, FormButton, Popup, TextPop
+  Form, FormItem, FormLabel, FormInput, FormBody, FormTextArea, FormButton
 } from './FormElements';
+import {Popup3, TextPop, PopText} from "../SmallElement/Popup"
 import axios from 'axios';
-// import {useHistory} from 'react-router-dom';
 
 const ContactForm = () => {
 
@@ -12,12 +12,11 @@ const ContactForm = () => {
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
-  // const history = useHistory();
 
   const saveMessage = async (e) => {
     e.preventDefault();
     if(document.querySelector("#name").value !== "" && document.querySelector("#subject").value !== "" && document.querySelector("#email").value !== "" && document.querySelector("#message").value !== ""){
-      Pop("Message has been sent");
+      PopText(3000, "Message has been sent");
       document.querySelector("#name").value = "";
       document.querySelector("#subject").value = "";
       document.querySelector("#email").value = "";
@@ -31,17 +30,8 @@ const ContactForm = () => {
     });
     }
     else{
-      Pop("Please complete the form");
+      PopText(3000, "Please complete the form");
     }
-    // history.push("/");
-  }
-
-  const Pop = (text) => {
-    document.querySelector(".popuptext").innerHTML = text;
-    document.querySelector(".popupstatus").style.display = "flex";
-    setTimeout((e) => {
-      document.querySelector(".popupstatus").style.display = "none";
-    }, 3000);
   }
 
   return (
@@ -64,7 +54,7 @@ const ContactForm = () => {
           <FormTextArea id='message' placeholder='Input message' rows="12" value={message} onChange={(e) => setMessage(e.target.value)}></FormTextArea>
         </FormItem>
         <FormButton className='submitButton' >Next</FormButton>
-        <Popup className='popupstatus'><TextPop className='popuptext'>Message has been sent</TextPop></Popup>
+        <Popup3 className='popupstatus'><TextPop className='popuptext'>Message has been sent</TextPop></Popup3>
       </Form>
     </FormBody>
   );

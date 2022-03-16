@@ -1,18 +1,9 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {
-  ProductsContainer,
-  ProductWrapper,
-  ProductsHeading,
-  ProductTitle,
-  ProductCard,
-  ProductImg,
-  ProductInfo,
-  ProductDesc,
-  ProductPrice,
-  Popup,
-  TextPop
+  ProductsContainer, ProductWrapper, ProductsHeading, ProductTitle, ProductCard, ProductImg, ProductInfo, ProductDesc, ProductPrice
 } from './ProductsElements';
+import {Popup1, TextPop, Pop} from "../SmallElement/Popup"
 import {
   HeroBtn
 } from '../SmallElement/Button';
@@ -34,17 +25,6 @@ const Products = ({ heading, data, list }) => {
     setProduct(response.data);
   }
 
-  const [lists, setList] = useState([]);
-
-  useEffect(() => {
-    getList();
-  }, [])
-
-  const getList = async () => {
-    const response = await axios.get('http://localhost:5000/list');
-    setList(response.data);
-  }
-
   const saveProduct = async (e) => {
     e.preventDefault();
     await axios.post('http://localhost:5000/cart', {
@@ -61,11 +41,15 @@ const Products = ({ heading, data, list }) => {
     getProducts();
   }
 
-  const Pop = () => {
-    document.querySelector(".popupstatus").style.display = "flex";
-    setTimeout((e) => {
-      document.querySelector(".popupstatus").style.display = "none";
-    }, 1000);
+  const [lists, setList] = useState([]);
+
+  useEffect(() => {
+    getList();
+  }, [])
+
+  const getList = async () => {
+    const response = await axios.get('http://localhost:5000/list');
+    setList(response.data);
   }
 
   return (
@@ -83,7 +67,7 @@ const Products = ({ heading, data, list }) => {
                   <ProductPrice>Rp. {product.price},-</ProductPrice>
                   <HeroBtn onClick={(e) => {
                     let cek;
-                    Pop();
+                    Pop(1000);
                     cek = products.find((item) => item.name === product.name);
                     if(cek===undefined){
                       setName(product.name);
@@ -108,9 +92,9 @@ const Products = ({ heading, data, list }) => {
           return null;
         })}
       </ProductWrapper>
-      <Popup className='popupstatus'>
+      <Popup1 className='popupstatus'>
         <TextPop>Product Successfully Added</TextPop>
-      </Popup>
+      </Popup1>
     </ProductsContainer>
   );
 };

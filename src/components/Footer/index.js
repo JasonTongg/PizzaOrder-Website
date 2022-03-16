@@ -1,19 +1,9 @@
 import React from 'react';
 import {
-  FaFacebook,
-  FaInstagram,
-  FaYoutube,
-  FaTwitter,
-  FaLinkedin
+  FaFacebook, FaInstagram, FaYoutube, FaTwitter, FaLinkedin
 } from 'react-icons/fa';
 import {
-  FooterContainer,
-  FooterWrap,
-  SocialMedia,
-  SocialMediaWrap,
-  SocialLogo,
-  SocialIcons,
-  SocialIconLink
+  FooterContainer, FooterWrap, SocialMedia, SocialMediaWrap, SocialLogo, SocialIcons, SocialIconLink
 } from './FooterElements';
 import { Bars} from '../Navbar/NavbarElements';
 

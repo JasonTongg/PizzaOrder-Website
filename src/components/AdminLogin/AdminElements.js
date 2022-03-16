@@ -34,14 +34,7 @@ export const Left = styled.div`
     }
 `;
 
-export const LeftText = styled.div`
-    // border-radius: 30px;
-    // padding: 2rem;
-
-    // @media only screen and (max-width: 1250px){
-    //     padding: 1.5rem;
-    // }
-`;
+export const LeftText = styled.div``;
 
 export const LeftHeader = styled.h1`
     font-size: 4rem;
