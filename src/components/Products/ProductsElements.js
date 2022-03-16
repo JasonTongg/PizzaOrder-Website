@@ -81,26 +81,6 @@ export const ProductsHeading = styled.h1`
   margin-bottom: 5rem;
 `;
 
-export const ProductMore = styled(Link)`
-  font-size: 1.4rem;
-  padding: .2rem 1.5rem;
-  border: none;
-  color: #000;
-  transition: 0.2s ease-out;
-  background: white;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 20px;
-  margin-top: 20px;
-  text-decoration: none;
-
-  &:hover {
-    background: #cc4d02;
-    transition: 0.2s ease-out;
-    color: white;
-  }
-`;
-
 export const ProductTitle = styled.h2`
   font-weight: 400;
   font-size: 1.5rem;
@@ -122,20 +102,4 @@ export const ProductDesc = styled.p`
 export const ProductPrice = styled.p`
   margin-bottom: 1rem;
   font-size: 2rem;
-`;
-
-export const ProductButton = styled.button`
-  font-size: 1rem;
-  padding: 1rem 4rem;
-  border: none;
-  background: #e31837;
-  color: #fff;
-  transition: 0.2 ease-out;
-
-  &:hover {
-    background: #ffc500;
-    transition: 0.2s ease-out;
-    cursor: pointer;
-    color: #000;
-  }
 `;

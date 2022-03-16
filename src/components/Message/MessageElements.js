@@ -34,7 +34,7 @@ export const InnerContainer = styled.div`
     }
 
     @media only screen and (max-width: 460px){
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 `;
 
@@ -58,16 +58,12 @@ export const MessageSubjectContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-`;
 
-export const DeleteBtn = styled.button`
-    padding: .5rem 1rem;
-    background: rgb(242, 75, 75);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    cursor: pointer;
+    @media only screen and (max-width: 400px){
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: .5rem .5rem;
+    }
 `;
 
 export const MessageSubject = styled.p`

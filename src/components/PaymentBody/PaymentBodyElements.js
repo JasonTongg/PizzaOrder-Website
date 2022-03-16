@@ -20,6 +20,14 @@ export const Container = styled.body`
     background: black;
     padding: 6rem;
     position: relative;
+
+    @media only screen and (max-width: 500px){
+        padding: 3rem;
+    }
+
+    @media only screen and (max-width: 360px){
+        padding: 1.5rem;
+    }
 `;
 
 export const RadioForm = styled.form`
@@ -148,28 +156,6 @@ export const TextH2 = styled.h2`
 
     @media only screen and (max-width: 680px){
         font-size: 1.5rem;
-    }
-`;
-
-export const PayBtn = styled.button`
-    padding: .5rem 2rem;
-    background: white;
-    color: black;
-    margin-left: 2rem;
-    border-radius: 10%;
-    font-weight: bold;
-    font-size: 1.5rem;
-    cursor: pointer;
-    border: none;
-
-    &:hover{
-        background: #cc4d02;
-        color: white;
-    }
-
-    @media only screen and (max-width: 680px){
-        margin-left: 0;
-        margin-top: 1rem;
     }
 `;
 

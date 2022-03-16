@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import { NavLink as Link } from 'react-router-dom';
 import { keyframes } from "styled-components";
 import bg from '../../images/pop.jpg';
 
@@ -12,14 +10,27 @@ export const BodyContainer = styled.body`
     justify-content: center;
     flex-direction: column;
     width: 100vw;
+    box-sizing: border-box;
+
+    @media only screen and (max-width: 600px){
+        padding: 1rem;
+    }
+
 `;
 
 export const InnerContainer = styled.div`
     background: #1d202d;
     width: 90%;
-    height: 80%;
     border-radius: 30px;
     padding: 3rem;
+
+    @media only screen and (max-width: 600px){
+        padding: 2rem;
+    }
+
+    @media only screen and (max-width: 370px){
+        padding: 1rem;
+    }
 `;
 
 export const ContainerHeader = styled.h1`
@@ -30,7 +41,8 @@ export const ContainerHeader = styled.h1`
 `;
 
 export const InfoContainer = styled.div`
-    height: 300px;
+    height: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1.5rem;
@@ -42,6 +54,7 @@ export const InfoContainer = styled.div`
 
     @media only screen and (max-width: 850px){
         height: 650px;
+        gap: 1rem;
     }
 `;
 
@@ -54,23 +67,24 @@ export const SmallInfoContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 0 1rem;
+    padding: .5rem 1rem;
 
-    @media only screen and (max-width: 600px){
+    @media only screen and (max-width: 440px){
         flex-direction: column;
+        padding: .2rem 1rem
     }
 `;
 
 export const BigInfoContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 1.5rem;
     width: 100%;
-    height: 100%;
 
     @media only screen and (max-width: 850px){
         grid-column: 1/-1;
+        gap: 1rem
     }
 `;
 
@@ -87,7 +101,7 @@ export const CenterInfoContainer = styled.div`
 
     @media only screen and (max-width: 1370px){
         grid-column: 1/ -1;
-        grid-row: 1/ 2;
+        grid-row: 1/ 1;
     }
 `;
 
@@ -95,15 +109,19 @@ export const TextP = styled.p`
     font-size: 1.5rem;
     color: #676b78;
     margin-right: 1.5rem;
+    text-align: center;
 
     @media only screen and (max-width: 970px){
         font-size: 1.2rem;
     }
 
-    @media only screen and (max-width: 600px){
+    @media only screen and (max-width: 440px){
         font-size: 1rem;
         margin: 0;
     }
+    // @media only screen and (max-width: 370px){
+    //     font-size: .8rem;
+    // }
 `;
 
 export const TextP4 = styled.p`
@@ -159,6 +177,11 @@ export const Dot = styled.div`
     border-radius: 50%;
     background: #eec956;
     margin-right: .5rem;
+
+    // @media only screen and (max-width: 370px){
+    //     width: 15px;
+    //     height: 15px;
+    // }
 `;
 
 export const DotPurple = styled.div`
@@ -167,6 +190,11 @@ export const DotPurple = styled.div`
     border-radius: 50%;
     background: #b658f5;
     margin-right: .5rem;
+
+    // @media only screen and (max-width: 370px){
+    //     width: 15px;
+    //     height: 15px;
+    // }
 `;
 
 export const DotRed = styled.div`
@@ -175,6 +203,11 @@ export const DotRed = styled.div`
     border-radius: 50%;
     background: #e47992;
     margin-right: .5rem;
+
+    // @media only screen and (max-width: 370px){
+    //     width: 15px;
+    //     height: 15px;
+    // }
 `;
 
 export const DotGreen = styled.div`
@@ -183,6 +216,11 @@ export const DotGreen = styled.div`
     border-radius: 50%;
     background: #37be9a;
     margin-right: .5rem;
+
+    // @media only screen and (max-width: 370px){
+    //     width: 15px;
+    //     height: 15px;
+    // }
 `;
 
 export const DotBlue = styled.div`
@@ -191,7 +229,12 @@ export const DotBlue = styled.div`
     border-radius: 50%;
     background: #6eb3d6;
     margin-right: 1rem;
-`;
+    
+//     @media only screen and (max-width: 370px){
+//         width: 15px;
+//         height: 15px;
+//     }
+// `;
 
 export const DotRedd = styled.div`
     width: 20px;
@@ -199,6 +242,11 @@ export const DotRedd = styled.div`
     border-radius: 50%;
     background: red;
     margin-right: 1rem;
+
+    // @media only screen and (max-width: 370px){
+    //     width: 15px;
+    //     height: 15px;
+    // }
 `;
 
 export const PersentageResult = styled.p`
@@ -259,7 +307,11 @@ export const ProfitContainer = styled.div`
     gap: 1.5rem;
     padding: 0 0 1.5rem 0;
 
-    @media only screen and (max-width: 600px){
+    @media only screen and (max-width: 850px){
+        gap: 1rem;
+    }
+
+    @media only screen and (max-width: 570px){
         grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     }
 `;
@@ -273,7 +325,7 @@ export const ProfitItem = styled.div`
     padding: .5rem;
     border-radius: 15px;
 
-    @media only screen and (max-width: 600px){
+    @media only screen and (max-width: 440px){
         flex-direction: column;
     }
 `;
@@ -301,6 +353,11 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     width: 90%;
+
+    @media only screen and (max-width: 850px){
+        gap: 1rem;
+
+    }
 
     @media only screen and (max-width: 1000px){
         grid-template-columns: 1fr;
@@ -389,6 +446,12 @@ export const AddFormItem = styled.div`
     align-items: center;
     margin-bottom: 1rem;
     margin-top: 1rem;
+
+    @media only screen and (max-width: 500px){
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
 `;
 
 export const AddLabel = styled.label`
@@ -397,6 +460,12 @@ export const AddLabel = styled.label`
     font-size: 1.2rem;
     width: 120px;
     text-align: end;
+
+    @media only screen and (max-width: 500px){
+        text-align: start;
+        margin-right: 0;
+        margin-block: .2rem;
+    }
 `;
 
 export const AddLabel1 = styled.label`
@@ -432,23 +501,6 @@ export const AddInput = styled.input`
         outline: none;
         border: none;
         margin-right: 1rem;
-    }
-`;
-
-export const AddButton = styled.input`
-    padding: .5rem 1rem;
-    font-size: 1.2rem;
-    border-radius: 30px;
-    background: none;
-    color: white;
-    border: 2px solid rgba(255,255,255,.1);
-    outline: none;
-    width: 100%;
-    cursor: pointer;
-
-    &:hover{
-        background: white;
-        color: black;
     }
 `;
 

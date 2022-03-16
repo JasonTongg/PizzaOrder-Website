@@ -7,9 +7,8 @@ import {
   HeroItems,
   HeroH1,
   HeroP,
-  HeroBtn,
-  Btn
 } from './HeroElements';
+import {HeroBtnLink} from '../SmallElement/Button';
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +25,7 @@ const Hero = () => {
         <HeroItems>
           <HeroH1>Tasty Pizza</HeroH1>
           <HeroP>Free delivery  |  Ready in 60 seconds</HeroP>
-          <Btn to="list">Order Now {`->`}</Btn>
+          <HeroBtnLink to="list">Order Now {`->`}</HeroBtnLink>
         </HeroItems>
       </HeroContent>
     </HeroContainer>

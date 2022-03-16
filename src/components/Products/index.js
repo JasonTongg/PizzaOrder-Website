@@ -10,13 +10,12 @@ import {
   ProductInfo,
   ProductDesc,
   ProductPrice,
-  ProductMore,
   Popup,
   TextPop
 } from './ProductsElements';
 import {
-  HeroBtn
-} from '../Hero/HeroElements';
+  HeroBtn, BtnMore
+} from '../SmallElement/Button';
 
 const Products = ({ heading, data1,data2, list }) => {
 
@@ -109,7 +108,7 @@ const Products = ({ heading, data1,data2, list }) => {
           return null;
         })}
       </ProductWrapper>
-      <ProductMore to="list">See More</ProductMore>
+      <BtnMore to="list">See More</BtnMore>
       <Popup className='popupstatus'>
         <TextPop>Product Successfully Added</TextPop>
       </Popup>

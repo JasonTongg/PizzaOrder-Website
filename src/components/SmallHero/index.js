@@ -8,7 +8,7 @@ import {
   HeroH1
 } from './HeroElements';
 
-const ListHero = () => {
+const ListHero = ({Header}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -21,7 +21,7 @@ const ListHero = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <HeroContent>
         <HeroItems>
-          <HeroH1>Order History</HeroH1>
+          <HeroH1>{Header}</HeroH1>
         </HeroItems>
       </HeroContent>
     </HeroContainer>

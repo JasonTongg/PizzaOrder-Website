@@ -15,9 +15,9 @@ import {
 } from './ProductsElements';
 import {
   HeroBtn
-} from '../Hero/HeroElements';
+} from '../SmallElement/Button';
 
-const Products = ({ heading, data1,data2, list }) => {
+const Products = ({ heading, type }) => {
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -73,7 +73,7 @@ const Products = ({ heading, data1,data2, list }) => {
       <ProductsHeading>{heading}</ProductsHeading>
       <ProductWrapper>
         {lists.map((product, index) => {
-          if (index>=data1 && index<=data2) {
+          if (product.alt === type) {
             return (
               <ProductCard onSubmit={saveProduct}>
                 <ProductImg src={product.image} alt={product.alt} />

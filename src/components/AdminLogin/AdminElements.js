@@ -1,7 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
 import {FaPizzaSlice} from 'react-icons/fa';
-import { NavLink as Link } from 'react-router-dom';
 import bg from '../../images/loginbg.jpeg';
 
 export const BigContainer = styled.div`
@@ -92,14 +90,6 @@ export const PizzaIcon = styled(FaPizzaSlice)`
     color: white;
 `;
 
-export const BackButton = styled(Link)`
-    color: black;
-    text-decoration: none;
-    font-size: 1.2rem;
-    border: none;
-    // font-weight: bold;
-`;
-
 export const BackButtonContainer = styled.div`
     background: white;
     border-radius: 15px;
@@ -187,40 +177,6 @@ export const Input = styled.input`
     &:focus{
         border: 2px solid rgb(154,76,70);
         transition: .05s ease-in;
-    }
-`;
-
-export const LoginButton = styled.button`
-    width: 48%;
-    border: none;
-    border-radius: 10px;
-    color: black;
-    background: white;
-    font-size: 1.2rem;
-    padding: .5rem;
-    margin: 0 auto;
-    margin-top: .2rem;
-    cursor: pointer;
-    font-weight: bold;
-
-    &:hover{
-        box-shadow: .02rem .1rem 1rem white;
-        transform: translatey(-5px);
-        transition: .2s linear;
-    }
-
-    &:active{
-        box-shadow: .005rem .05rem .5rem white;
-        transform: translatey(-3px);
-        transition: .2s linear;
-    }
-
-    @media only screen and (max-width: 1250px){
-        width: 58%;
-    }
-
-    @media only screen and (max-width: 900px){
-        width: 68%;
     }
 `;
 

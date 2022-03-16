@@ -64,20 +64,6 @@ export const SidebarMenu = styled.div`
   }
 `;
 
-export const SidebarLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  text-decoration: none;
-  list-style: none;
-  transition: 0.2s ease-in-out;
-  cursor: pointer;
-  background: linear-gradient(to right, #cc4d02, brown, rgb(154,76,70));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`;
-
 export const SidebarLinkContainer = styled.div`
   width: 70%;
   height: 70%;

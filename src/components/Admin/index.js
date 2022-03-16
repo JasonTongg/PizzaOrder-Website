@@ -1,7 +1,9 @@
-import {BodyContainer, InnerContainer, ContainerHeader, InfoContainer, BigInfoContainer, SmallInfoContainer, CenterInfoContainer, TextP, TextP2, Persentage, Dot, DotRed, DotGreen, PersentageResult, BigText, TextP3, TableHeader, TableHeaderItem, TableRowItem, ProfitContainer, ProfitItem, DotBlue, DotRedd, TableOverflow, TableContainer, TextP4, Container, ZeroContainer, AddUpdateContainer, ZeroHeader, ZeroTableHeader, ZeroItem, ZeroTable, ZeroItems, AddForm, AddLabel, AddInput, AddFormItem, AddSelect, AddOption, AddTextArea, AddLabel1, AddButton, Popup, TextPop, DotPurple} from './AdminElements';
 import React from 'react';
+import {BodyContainer, InnerContainer, ContainerHeader, InfoContainer, BigInfoContainer, SmallInfoContainer, CenterInfoContainer, TextP, TextP2, Persentage, Dot, DotRed, DotGreen, PersentageResult, BigText, TextP3, TableHeader, TableHeaderItem, TableRowItem, ProfitContainer, ProfitItem, DotBlue, DotRedd, TableOverflow, TableContainer, TextP4, Container, ZeroContainer, AddUpdateContainer, ZeroHeader, ZeroTableHeader, ZeroItem, ZeroTable, ZeroItems, AddForm, AddLabel, AddInput, AddFormItem, AddSelect, AddOption, AddTextArea, AddLabel1, Popup, TextPop, DotPurple} from './AdminElements';
+import {BlackWhiteButton} from "../SmallElement/Button"
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+
 
 const Admin = () => {
 
@@ -278,7 +280,7 @@ const Admin = () => {
               <AddInput id="image" type="file" name="myImage" accept="image/png, image/gif, image/jpeg" onChange={(e) => setImage("https://i.pinimg.com/736x/d9/ad/a7/d9ada78c8353c9597d823aae8031a052.jpg")} required></AddInput>
             </AddFormItem>
             <AddFormItem>
-              <AddButton type="submit" value="Add Product" onClick={(e) => {
+              <BlackWhiteButton type="submit" value="Add Product" onClick={(e) => {
                 e.preventDefault();
                 if(document.querySelector("#image").value!=="" && document.querySelector("#desc").value !== "" && document.querySelector("#price").value!=="" && document.querySelector("#name").value!==""){
                   document.querySelector("#image").value="";
@@ -302,7 +304,7 @@ const Admin = () => {
                   Pop("Please complete the form");
                 }
                 
-              }}></AddButton>
+              }}></BlackWhiteButton>
             </AddFormItem>
           </AddForm>
         </AddUpdateContainer>

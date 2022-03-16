@@ -86,29 +86,6 @@ export const ProductLinear = styled.div`
   border-radius: 15px;
 `;
 
-export const ProductDelete = styled.button`
-  width: 45%; 
-  padding: .8rem;
-  background: rgb(242, 75, 75);
-  border: none;
-  border-radius: 15px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-
-  &:hover{
-    transition: ease-in;
-    transform: translatey(-5px);
-    box-shadow: .1rem .3rem 1rem rgba(154,76,70,.9);
-  }
-
-  &:active{
-    transition: ease-in;
-    transform: translatey(-3px);
-    box-shadow: 0rem .1rem 1rem rgba(154,76,70,.9);
-  }
-`;
-
 export const ProductButton = styled.div`
   display: flex;
   flex-direction: row;
@@ -142,32 +119,13 @@ export const TextP = styled.p`
   font-size: 1.8rem;
 `;
 
-export const Btn = styled(Link)`
-  background: white;
-  color: black;
-  padding: .5rem 2rem;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  border-radius: 5%;
-  font-weight: bold;
-  margin-top: 1.5rem;
-  text-decoration: none;
-  display: block;
-
-  &:hover{
-    background: #cc4d02;
-    color: white;
-  }
-`;
-
 export const InfoContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
 
-  @media only screen and (max-width: 700px){
+  @media only screen and (max-width: 1070px){
     align-items: center;
   }
 `;

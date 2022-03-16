@@ -1,13 +1,13 @@
 import React from 'react';
 import { FeatureContainer } from './FeatureElements';
-import { HeroBtn } from '../Hero/HeroElements'
+import { HeroBtnLink } from '../SmallElement/Button'
 
 const Feature = () => {
   return (
     <FeatureContainer>
       <p>California Pizza</p>
       <h1>Pizza of the Day</h1>
-      <HeroBtn>Order Now</HeroBtn>
+      <HeroBtnLink to="/list">Order Now {`->`}</HeroBtnLink>
     </FeatureContainer>
   );
 };

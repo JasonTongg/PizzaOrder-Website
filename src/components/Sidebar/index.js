@@ -4,10 +4,11 @@ import {
   Icon,
   CloseIcon,
   SidebarMenu,
-  SidebarLink,
   SideBtnWrap,
   SidebarLinkContainer
 } from './SidebarElements';
+
+import {ShadowBtn} from '../SmallElement/Button'
 
 const Sidebar = ({ isOpen, toggle }) => {
   return (
@@ -17,20 +18,20 @@ const Sidebar = ({ isOpen, toggle }) => {
       </Icon>
       <SidebarMenu>
         <SidebarLinkContainer>
-          <SidebarLink to='/list'>Full Menu</SidebarLink>
+          <ShadowBtn to='/list'>Full Menu</ShadowBtn>
         </SidebarLinkContainer>
         <SidebarLinkContainer>
-          <SidebarLink to='/cart'>Food Cart</SidebarLink>
+          <ShadowBtn to='/cart'>Food Cart</ShadowBtn>
         </SidebarLinkContainer>
         <SidebarLinkContainer>
-          <SidebarLink to='/history'>Order History</SidebarLink>
+          <ShadowBtn to='/history'>Order History</ShadowBtn>
         </SidebarLinkContainer>
         <SidebarLinkContainer>
-          <SidebarLink to='/login'>Login as Admin</SidebarLink>
+          <ShadowBtn to='/login'>Login as Admin</ShadowBtn>
         </SidebarLinkContainer>
       </SidebarMenu>
       <SideBtnWrap>
-        <SidebarLink to='/list'>Order Now</SidebarLink>
+        <ShadowBtn to='/list'>Order Now</ShadowBtn>
       </SideBtnWrap>
     </SidebarContainer>
   );

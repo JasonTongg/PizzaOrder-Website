@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadioLabel, RadioInput, RadioForm, InputContainer, RadioLabelImage, Line, Container, PaymentIcon, PaymentStatus, TextH1, PaymentStatusInfo, PaymentStatusText, TextP, HargaNominal, TextH2, PayBtn, PopupContainer, PopupItem, PopupText, PopupImage, TextH1Black, TextPBlack, PopupIcon, PaymentVoucher, VoucherInput, VoucherStatus, Popup, TextPop } from './PaymentBodyElements';
+import { RadioLabel, RadioInput, RadioForm, InputContainer, RadioLabelImage, Line, Container, PaymentIcon, PaymentStatus, TextH1, PaymentStatusInfo, PaymentStatusText, TextP, HargaNominal, TextH2, PopupContainer, PopupItem, PopupText, PopupImage, TextH1Black, TextPBlack, PopupIcon, PaymentVoucher, VoucherInput, VoucherStatus, Popup, TextPop } from './PaymentBodyElements';
 import bca from '../../images/bca.png';
 import bni from '../../images/bni.png';
 import mandiri from '../../images/mandiri.png';
@@ -11,6 +11,7 @@ import shopeepay from '../../images/shopeepay.png';
 import PopupImg from '../../images/popup.png';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import {BtnV2} from '../SmallElement/Button';
 
 const PaymentBody = () => {
   const [orders, setOrder] = useState([]);
@@ -103,7 +104,7 @@ const PaymentBody = () => {
         </PaymentStatusInfo>
         <PaymentStatusInfo>
           <TextH2 className='total'>Total: Rp. {total + total/10 + 15000},-</TextH2>
-          <PayBtn onClick={(e) => {
+          <BtnV2 onClick={(e) => {
             if(document.querySelector('input[name="paymentMethod"]:checked')?.value!==undefined){
               products.forEach((item) => {
                 deleteProduct(item.id);
@@ -123,7 +124,7 @@ const PaymentBody = () => {
             else{
               Pop();
             }
-          }}>Pay</PayBtn>
+          }}>Pay</BtnV2>
         </PaymentStatusInfo>
         <PaymentVoucher>
           <VoucherInput placeholder='Input Voucher Code' className='voucher' onChange={(e) => {

@@ -5,7 +5,7 @@ import bg from '../../images/pop.jpg';
 
 export const ProductsContainer = styled.div`
   min-height: 100vh;
-  padding: 5rem calc((100vw - 1300px) / 2);
+  padding: 1rem calc((100vw - 1300px) / 2);
   background: #150f0f;
   color: #fff;
   display: flex;
@@ -37,7 +37,7 @@ export const ProductImg = styled.img`
 export const ProductsHeading = styled.h1`
   font-size: clamp(2rem, 2.5vw, 3rem);
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 `;
 
 export const ProductMore = styled(Link)`
@@ -83,22 +83,6 @@ export const ProductPrice = styled.p`
   font-size: 2rem;
 `;
 
-export const ProductButton = styled.button`
-  font-size: 1rem;
-  padding: 1rem 4rem;
-  border: none;
-  background: #e31837;
-  color: #fff;
-  transition: 0.2 ease-out;
-
-  &:hover {
-    background: #ffc500;
-    transition: 0.2s ease-out;
-    cursor: pointer;
-    color: #000;
-  }
-`;
-
 let example = keyframes`
   from {
     right: -10rem;
@@ -122,7 +106,6 @@ export const Popup = styled.div`
   background: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,.5)) ,url(${bg});
   background-size: cover;
   background-posisition: center;
-  // background: #cc4d02;
   animation-name: ${example};
   animation-duration: 1s;
   animation-iteration-count: infinite;
@@ -133,6 +116,7 @@ export const Popup = styled.div`
   justify-content: center;
   padding: .5rem;
   text-align: center;
+  z-index: 1000;
 `;
 
 export const TextPop = styled.p`

@@ -63,17 +63,6 @@ export const Span = styled.span`
     color: #c06b0e;
 `;
 
-export const Btn = styled(Link)`
-    background: #c06b0e;
-    border-radius: 15px;
-    border: none;
-    padding: .5rem 1rem;
-    font-size: 1.2rem;
-    color: white;
-    text-decoration: none;
-    margin-top: 1.5rem;
-`;
-
 export const Left = styled.div`
     @media only screen and (max-width: 900px){
         display: none;

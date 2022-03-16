@@ -1,8 +1,10 @@
+import {
+  ProductsContainer, ProductWrapper, ProductTitle, ProductCard, ProductInfo, ProductPrice,Line, TextHeader, TextP, InfoContainer, ProductQty, ProductLinear, ProductQtyContainer,  ProductButton
+} from './ProductsElements';
+
+import {Btn, BtnDelete} from '../SmallElement/Button';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import {
-  ProductsContainer, ProductWrapper, ProductTitle, ProductCard, ProductInfo, ProductPrice,Line, TextHeader, TextP, Btn, InfoContainer, ProductQty, ProductLinear, ProductQtyContainer, ProductDelete, ProductButton
-} from './ProductsElements';
 
 const Products = ({ data, list }) => {
 
@@ -38,7 +40,7 @@ const Products = ({ data, list }) => {
               <ProductTitle>{product.name}</ProductTitle>
               <ProductPrice>Rp. {product.price * product.qty},-</ProductPrice>
               <ProductButton>
-                <ProductDelete onClick={(e) => deleteProduct(product.id)}>Delete</ProductDelete>
+                <BtnDelete onClick={(e) => deleteProduct(product.id)}>Delete</BtnDelete>
               </ProductButton>
             </ProductInfo>
           </ProductCard>

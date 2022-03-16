@@ -11,10 +11,11 @@ const list = () => {
         <OverflowHidden>
             <GlobalStyle />
             <ListHero />
-            <ProductsList heading='Pizzas' data1={`${0}`} data2={`${8}`}/>
-            <ProductsList heading='Drinks' data1={`${9}`} data2={`${11}`} />
-            <ProductsList heading='Sweets' data1={`${12}`} data2={`${14}`} />
             <NewProduct heading='New Menu' data={`${15}`}/>
+            <ProductsList heading='Pizzas' type={'Pizza'}/>
+            <ProductsList heading='Drinks' type={'Drinks'} />
+            <ProductsList heading='Sweets' type={'Dessert'} />
+            <ProductsList heading='Pasta' type={'Pasta'} />
             <Footer />
         </OverflowHidden>
     )

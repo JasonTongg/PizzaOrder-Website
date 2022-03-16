@@ -10,13 +10,12 @@ import {
   ProductInfo,
   ProductDesc,
   ProductPrice,
-  ProductMore,
   Popup,
   TextPop
 } from './ProductsElements';
 import {
   HeroBtn
-} from '../Hero/HeroElements';
+} from '../SmallElement/Button';
 
 const Products = ({ heading, data, list }) => {
 
@@ -66,7 +65,7 @@ const Products = ({ heading, data, list }) => {
     document.querySelector(".popupstatus").style.display = "flex";
     setTimeout((e) => {
       document.querySelector(".popupstatus").style.display = "none";
-    }, 3000);
+    }, 1000);
   }
 
   return (

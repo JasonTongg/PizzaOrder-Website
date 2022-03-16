@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import {BodyContainer, BodyHeader, InnerContainer, MessageItem, MessageSubjectContainer, MessageSubject, MessageInfo, MessageBody, Top, DeleteBtn} from './MessageElements';
+import {BodyContainer, BodyHeader, InnerContainer, MessageItem, MessageSubjectContainer, MessageSubject, MessageInfo, MessageBody, Top} from './MessageElements';
+import { BtnDeleteSmall } from '../SmallElement/Button';
 
 const Message = () => {
   const [messages, setMessage] = useState([]);
@@ -28,7 +29,7 @@ const Message = () => {
             <Top>
               <MessageSubjectContainer>
                 <MessageSubject>{item.subject}</MessageSubject>
-                <DeleteBtn onClick={(e) => deleteMessage(item.id)}>Delete</DeleteBtn>
+                <BtnDeleteSmall onClick={(e) => deleteMessage(item.id)}>Delete</BtnDeleteSmall>
               </MessageSubjectContainer>
               <MessageInfo>Name: {item.name}</MessageInfo>
               <MessageInfo>Email: {item.email}</MessageInfo>

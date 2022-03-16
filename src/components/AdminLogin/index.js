@@ -1,4 +1,5 @@
-import {BigContainer, Left, Right, LeftHeader, LeftPizzaria, PizzaP, PizzaIcon, Label, Input, InputContainer, LoginButton, BackButton, LeftText, BackButtonContainer, LoginStatus, LoginStatusContainer} from './AdminElements';
+import {BigContainer, Left, Right, LeftHeader, LeftPizzaria, PizzaP, PizzaIcon, Label, Input, InputContainer, LeftText, BackButtonContainer, LoginStatus, LoginStatusContainer} from './AdminElements';
+import {ShadowBtnBlack, ShadowBtnBold} from '../SmallElement/Button';
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
@@ -16,7 +17,7 @@ const AdminLogin = () => {
           <LeftHeader>LOGIN AS ADMIN</LeftHeader>
         </LeftText>
         <BackButtonContainer>
-          <BackButton to="/">Back to Homepage</BackButton>
+          <ShadowBtnBlack to="/">Back to Homepage</ShadowBtnBlack>
         </BackButtonContainer>
       </Left>
       <Right onSubmit={(e) => {
@@ -48,7 +49,7 @@ const AdminLogin = () => {
           <Label for="password">Password</Label>
           <Input type="password" id='password'></Input>
         </InputContainer>
-        <LoginButton>Login</LoginButton>
+        <ShadowBtnBold>Login</ShadowBtnBold>
         <LoginStatusContainer className='statusContainer'>
           <LoginStatus className='status'></LoginStatus>
         </LoginStatusContainer>
