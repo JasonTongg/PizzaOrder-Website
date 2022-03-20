@@ -27,7 +27,7 @@ export const Popup1 = styled.div`
     background-posisition: center;
     // background: #cc4d02;
     animation-name: ${example};
-    animation-duration: 1s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     display: none;
     border-radius: 15px;
@@ -69,7 +69,11 @@ export const TextPop = styled.p`
 export const Pop = (waktu) => {
     document.querySelector(".popupstatus").style.display = "flex";
     setTimeout((e) => {
-        document.querySelector(".popupstatus").style.display = "none";
+        try {
+            document.querySelector(".popupstatus").style.display = "none";
+        } catch (error) {
+            console.log(error);
+        }
     }, waktu);
 }
 
@@ -77,6 +81,10 @@ export const PopText = (waktu, text) => {
     document.querySelector(".popuptext").innerHTML = text;
     document.querySelector(".popupstatus").style.display = "flex";
     setTimeout((e) => {
-        document.querySelector(".popupstatus").style.display = "none";
+        try {
+            document.querySelector(".popupstatus").style.display = "none";
+        } catch (error) {
+            console.log(error);
+        }
     }, waktu);
 }

@@ -116,7 +116,7 @@ const PaymentBody = () => {
               })
             }
             else{
-              Pop(1000);
+              Pop(3000);
             }
           }}>Pay</BtnV2>
         </PaymentStatusInfo>
