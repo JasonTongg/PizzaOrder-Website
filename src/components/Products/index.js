@@ -78,7 +78,6 @@ const Products = ({ heading, data1,data2, list }) => {
                     else{
                       let newQty = cek.qty+1;
                       deleteProduct(cek.id);
-                      console.log(cek.id);
                       setName(product.name);
                       setPrice(product.price);
                       setQty(newQty);
