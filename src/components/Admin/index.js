@@ -1,5 +1,5 @@
 import React from 'react';
-import {BodyContainer, InnerContainer, ContainerHeader, InfoContainer, BigInfoContainer, SmallInfoContainer, CenterInfoContainer, TextP, TextP2, Persentage, Dot, DotRed, DotGreen, PersentageResult, BigText, TextP3, TableHeader, TableHeaderItem, TableRowItem, ProfitContainer, ProfitItem, DotBlue, DotRedd, TableOverflow, TableContainer, TextP4, Container, ZeroContainer, AddUpdateContainer, ZeroHeader, ZeroTableHeader, ZeroItem, ZeroTable, ZeroItems, AddForm, AddLabel, AddInput, AddFormItem, AddSelect, AddOption, AddTextArea, AddLabel1, DotPurple} from './AdminElements';
+import {BodyContainer, InnerContainer, ContainerHeader, InfoContainer, BigInfoContainer, SmallInfoContainer, CenterInfoContainer, TextP, TextP2, Persentage, Dot, DotRed, DotGreen, PersentageResult, BigText, TextP3, TableHeader, TableHeaderItem, TableRowItem, ProfitContainer, ProfitItem, DotBlue, DotRedd, TableOverflow, TableContainer, TextP4, Container, ZeroContainer, AddUpdateContainer, ZeroHeader, ZeroTableHeader, ZeroItem, ZeroTable, ZeroItems, ZeroItemss, ZeroItemsss,AddForm, AddLabel, AddInput, AddFormItem, AddSelect, AddOption, AddTextArea, AddLabel1, DotPurple, BtnDelete, ZeroItemssRemove, ZeroItemsssRemove} from './AdminElements';
 import {BlackWhiteButton} from "../SmallElement/Button"
 import {Popup3, TextPop, PopText} from "../SmallElement/Popup"
 import {useEffect, useState} from 'react';
@@ -36,15 +36,33 @@ const Admin = () => {
     const response = await axios.get('http://localhost:5000/list');
     setList(response.data);
   }
+
+  const [code, setCode] = useState('');
+  const [persen, setPersen] = useState('');
+  const [voucher, setVoucher] = useState([]);
+
+  useEffect(() => {
+    getVoucher();
+  }, [])
+
+  const getVoucher = async () => {
+    const response = await axios.get('http://localhost:5000/voucher');
+    setVoucher(response.data);
+  }
+
+  const deleteVoucher = async (id) => {
+    await axios.delete(`http://localhost:5000/voucher/${id}`);
+    getVoucher();
+  }
   
   let JumlahProduct=0;
   let PizzaOrder=0;
   let DrinksOrder=0;
   let SweetsOrder=0;
   let PastaOrder=0;
-  let NewYear=0;
-  let Pizzaria=0;
-  let Chinese=0;
+  let Voucher_1=0;
+  let Voucher_2=0;
+  let NoVoucher=0;
   let Profit=0;
   products.forEach((item, index) => {
     JumlahProduct += item.qty;
@@ -63,14 +81,18 @@ const Admin = () => {
       PastaOrder+= item.qty;
     }
 
-    if(item.diskon === "NewYear"){
-      NewYear+=item.qty;
-    }
-    else if(item.diskon === "Pizzaria0303"){
-      Pizzaria+=item.qty;
-    }
-    else if(item.diskon === "ChineseNewYear"){
-      Chinese+=item.qty;
+    voucher.filter((item, index) => index===0).forEach((element, index) => {
+      if(item.diskon === `${element.code}`){
+        Voucher_1+=item.qty;
+      }
+    });
+    voucher.filter((item, index) => index===1).forEach((element, index) => {
+      if(item.diskon === `${element.code}`){
+        Voucher_2+=item.qty;
+      }
+    });
+    if(item.diskon === ""){
+      NoVoucher+=item.qty;
     }
   });
 
@@ -157,31 +179,59 @@ const Admin = () => {
           </CenterInfoContainer>
           <BigInfoContainer>
             <SmallInfoContainer>
-              <TextP>NewYear Voucher</TextP>
+            {voucher.filter((item, index) => index===0).map((item) => 
+              {
+                let print="";
+                if(item.code === "Pizzaria0303"){
+                  print = "Pizzaria"
+                }
+                else if(item.code === "ChineseNewYear"){
+                  print = "Chinese"
+                }
+                else{
+                  print = item.code;
+                }
+                return (
+                <TextP>{print} Voucher</TextP>
+              )})}
               <Persentage>
                 <Dot></Dot>
-                <PersentageResult>{Math.round(Persen(NewYear))}%</PersentageResult>
+                <PersentageResult>{Math.round(Persen(Voucher_1))}%</PersentageResult>
               </Persentage>
             </SmallInfoContainer>
             <SmallInfoContainer>
-              <TextP>Pizzaria Voucher</TextP>
+              {voucher.filter((item, index) => index===1).map((item) => 
+              {
+                let print="";
+                if(item.code === "Pizzaria0303"){
+                  print = "Pizzaria"
+                }
+                else if(item.code === "ChineseNewYear"){
+                  print = "Chinese"
+                }
+                else{
+                  print = item.code;
+                }
+                return (
+                <TextP>{print} Voucher</TextP>
+              )})}
               <Persentage>
                 <DotRed></DotRed>
-                <PersentageResult>{Math.round(Persen(Pizzaria))}%</PersentageResult>
+                <PersentageResult>{Math.round(Persen(Voucher_2))}%</PersentageResult>
               </Persentage>
             </SmallInfoContainer>
             <SmallInfoContainer>
-              <TextP>ChineseYear Voucher</TextP>
+              <TextP>Other Voucher</TextP>
               <Persentage>
                 <DotGreen></DotGreen>
-                <PersentageResult>{Math.round(Persen(Chinese))}%</PersentageResult>
+                <PersentageResult>{Math.round(100 - Persen(Voucher_2) - Persen(Voucher_1))}%</PersentageResult>
               </Persentage>
             </SmallInfoContainer>
             <SmallInfoContainer>
               <TextP>No Voucher</TextP>
               <Persentage>
                 <DotPurple></DotPurple>
-                <PersentageResult>{Math.round(100 - Persen(Pizzaria) - Persen(NewYear))}%</PersentageResult>
+                <PersentageResult>{Math.round(Persen(NoVoucher))}%</PersentageResult>
               </Persentage>
             </SmallInfoContainer>
           </BigInfoContainer>
@@ -229,6 +279,7 @@ const Admin = () => {
           ))}
         </TableOverflow>
       </TableContainer>
+      <TextP3>Product Info</TextP3>
       <Container>
         <ZeroContainer>
           <ZeroHeader>Zero Order</ZeroHeader>
@@ -291,6 +342,59 @@ const Admin = () => {
                     button: "Order Now ->",
                   })
                   PopText(3000, "Product has been added");
+                  getProducts();
+                }
+                else{
+                  PopText(3000, "Please complete the form");
+                }
+              }}></BlackWhiteButton>
+            </AddFormItem>
+          </AddForm>
+        </AddUpdateContainer>
+      </Container>
+      <TextP3>Voucher Info</TextP3>
+      <Container>
+        <ZeroContainer>
+          <ZeroHeader>Available Voucher</ZeroHeader>
+            <ZeroTable>
+              <ZeroTableHeader>
+                <ZeroItemsss>Voucher</ZeroItemsss>
+                <ZeroItemsssRemove>Percentage</ZeroItemsssRemove>
+                <ZeroItemsss>Action</ZeroItemsss>
+              </ZeroTableHeader>
+              {voucher.map((item) => (
+                <ZeroTableHeader>
+                  <ZeroItemss>{item.code}</ZeroItemss>
+                  <ZeroItemssRemove>{item.persentage}</ZeroItemssRemove>
+                  <BtnDelete onClick={() => {
+                    deleteVoucher(item.id);
+                  }}>Delete</BtnDelete>
+                </ZeroTableHeader>
+              ))}
+            </ZeroTable>
+        </ZeroContainer>
+        <AddUpdateContainer>
+          <ZeroHeader>Add Voucher</ZeroHeader>
+          <AddForm>
+            <AddFormItem>
+              <AddLabel for="code">Code</AddLabel>
+              <AddInput type="text" id="code" onChange={(e) => setCode(e.target.value)} required></AddInput>
+            </AddFormItem>
+            <AddFormItem>
+              <AddLabel for="persen">Percentage</AddLabel>
+              <AddInput type="text" id="persen" onChange={(e) => setPersen(e.target.value)}required></AddInput>
+            </AddFormItem>
+            <AddFormItem>
+              <BlackWhiteButton type="submit" value="Add Voucher" onClick={(e) => {
+                e.preventDefault();
+                if(document.querySelector("#code").value!=="" && document.querySelector("#persen").value !== ""){
+                  document.querySelector("#code").value="";
+                  document.querySelector("#persen").value = "";
+                  axios.post('http://localhost:5000/voucher', {
+                    code: code,
+                    persentage: persen
+                  })
+                  PopText(3000, "Voucher has been added");
                   getProducts();
                 }
                 else{

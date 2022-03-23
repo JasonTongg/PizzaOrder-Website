@@ -11,7 +11,7 @@ const Navbar = ({ toggle }) => {
             <Bars />
           </NavIcon>  
           <NavIcon>
-            <NavLink to='contact'>Contact Us</NavLink>
+            <NavLink to='/contact'>Contact Us</NavLink>
             <Phone />
           </NavIcon> 
         </NavItem>

@@ -206,7 +206,6 @@ export const BtnDelete = styled.button`
         transform: translatey(-3px);
         box-shadow: 0rem .1rem 1rem rgba(154,76,70,.9);
     }
-
 `;
 
 export const BtnDeleteSmall = styled.button`

@@ -3,8 +3,6 @@ import { NavLink as Link } from 'react-router-dom';
 import { FaMoneyBillWave, FaCheckCircle } from 'react-icons/fa';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import { keyframes } from "styled-components";
-import bg from '../../images/pop.jpg';
 
 export const PaymentIcon = styled(FaMoneyBillWave)`
     color: white;

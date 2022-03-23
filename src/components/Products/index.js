@@ -67,7 +67,7 @@ const Products = ({ heading, data1,data2, list }) => {
                   <ProductPrice>Rp. {product.price},-</ProductPrice>
                   <HeroBtn onClick={(e) => {
                     let cek;
-                    Pop(3000);
+                    Pop(1000);
                     cek = products.find((item) => item.name === product.name);
                     if(cek===undefined){
                       setName(product.name);

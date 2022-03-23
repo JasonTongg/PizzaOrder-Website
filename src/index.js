@@ -17,6 +17,26 @@ export const ContainerBlack = styled.div`
 
 export const OverflowHidden = styled.div`
   overflow-x: hidden;
+
+  ::-webkit-scrollbar{
+    background: none;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(21,15,15); 
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 15px;
+    outline: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cc4d02; 
+    border-radius: 15px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #cc6d35; 
+  }
 `;
 
 ReactDOM.render(

@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-import { NavLink as Link } from 'react-router-dom';
-import { keyframes } from "styled-components";
-import bg from '../../images/pop.jpg';
 
 export const ProductsContainer = styled.div`
   min-height: 100vh;

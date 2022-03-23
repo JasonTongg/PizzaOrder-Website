@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
-import { FaPizzaSlice, FaListAlt } from 'react-icons/fa';
+import { FaPizzaSlice} from 'react-icons/fa';
 import { AiFillMessage} from 'react-icons/ai';
 import {HiOutlineLogout} from 'react-icons/hi'
 

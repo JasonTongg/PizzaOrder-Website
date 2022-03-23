@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { keyframes } from "styled-components";
-import bg from '../../images/pop.jpg';
 
 export const BodyContainer = styled.body`
     background: #121421;
@@ -315,18 +313,16 @@ export const TableContainer = styled.div`
 
 export const Container = styled.div`
     display: grid;
-    margin-block: 4rem 2rem;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     width: 90%;
 
-    @media only screen and (max-width: 850px){
-        gap: 1rem;
-
+    @media only screen and (max-width: 1230px){
+        grid-template-columns: 1fr;
     }
 
-    @media only screen and (max-width: 1000px){
-        grid-template-columns: 1fr;
+    @media only screen and (max-width: 850px){
+        gap: 1rem;
     }
 `;
 
@@ -336,6 +332,7 @@ export const ZeroContainer = styled.div`
     overflow: auto;
     border-radius: 30px;
     max-height: 380px;
+    padding: 1rem;
     
     ::-webkit-scrollbar{
         display: none;
@@ -359,6 +356,10 @@ export const ZeroTableHeader = styled.div`
     justify-content: space-evenly;
     padding: 0 1rem;
     padding-bottom: 1rem;
+
+    @media only screen and (max-width: 430px){
+        justify-content: space-between;
+    }
 `;
 
 export const ZeroTable = styled.div`
@@ -379,6 +380,107 @@ export const ZeroItems = styled.p`
     text-align: center;
 `;
 
+export const ZeroItemss = styled.p`
+    color: #676b78;
+    font-size: 1.4rem;
+    width: 300px;
+    text-align: center;
+
+    @media only screen and (max-width: 700px){
+        width: 200px;
+        font-size: 1.2rem;
+    }
+
+    @media only screen and (max-width: 430px){
+        width: 100px;
+        text-align: start;
+    }
+`;
+
+export const ZeroItemssRemove = styled.p`
+    color: #676b78;
+    font-size: 1.4rem;
+    width: 300px;
+    text-align: center;
+
+    @media only screen and (max-width: 700px){
+        width: 200px;
+        font-size: 1.2rem;
+    }
+
+    @media only screen and (max-width: 575px){
+        display: none;
+    }
+`;
+
+export const ZeroItemsss = styled.p`
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 300px;
+
+    @media only screen and (max-width: 700px){
+        width: 200px;
+        font-size: 1.3rem;
+    }
+
+    @media only screen and (max-width: 430px){
+        width: 100px;
+    }
+`;
+
+export const ZeroItemsssRemove = styled.p`
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 300px;
+
+    @media only screen and (max-width: 700px){
+        width: 200px;
+        font-size: 1.3rem;
+    }
+
+    @media only screen and (max-width: 575px){
+        display: none;
+    }
+`;
+
+export const BtnDelete = styled.button`
+    width: 300px; 
+    padding: .5rem;
+    background: rgb(242, 75, 75);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.3rem;
+
+    &:hover{
+        transition: ease-in;
+        transform: translatey(-5px);
+        box-shadow: .1rem .3rem 1rem rgba(154,76,70,.9);
+    }
+
+    &:active{
+        transition: ease-in;
+        transform: translatey(-3px);
+        box-shadow: 0rem .1rem 1rem rgba(154,76,70,.9);
+    }
+
+    @media only screen and (max-width: 700px){
+        width: 200px;
+        font-size: 1.1rem;
+        padding: .5rem;
+    }
+
+    @media only screen and (max-width: 430px){
+        padding-block: .2rem;
+        width: 100px;
+    }
+`;
+
 export const AddUpdateContainer = styled.div`
     width: 100%;
     height: 100%;
@@ -386,7 +488,7 @@ export const AddUpdateContainer = styled.div`
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: start;
     padding: 1.5rem;
     max-height: 380px;

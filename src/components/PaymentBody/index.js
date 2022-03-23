@@ -42,9 +42,30 @@ const PaymentBody = () => {
     getProducts();
   }
 
+  const [voucher, setVoucher] = useState([]);
+
+  useEffect(() => {
+    getVoucher();
+  }, [])
+
+  const getVoucher = async () => {
+    const response = await axios.get('http://localhost:5000/voucher');
+    setVoucher(response.data);
+  }
+
   let total = HargaNominal();
   let cekDiskon = () => {
     return document.querySelector(".voucher").value;
+  }
+
+  let cekTotal = (persentase) => {
+    let totalTemp=total;
+    totalTemp= totalTemp + totalTemp/10 + 15000;
+    let diskon=totalTemp*persentase/100;
+    totalTemp=totalTemp-diskon;
+    totalTemp=Math.round(totalTemp);
+
+    return totalTemp;
   }
 
   return (
@@ -84,7 +105,6 @@ const PaymentBody = () => {
           <RadioLabel for="dana"><RadioLabelImage src={dana}></RadioLabelImage></RadioLabel>
         </InputContainer>
       </RadioForm>
-      {console.log(document.querySelector('input[name="paymentMethod"]:checked')?.value)}
       <Line></Line>
       <PaymentStatus>
         <TextH1>Payment Status</TextH1>
@@ -105,7 +125,6 @@ const PaymentBody = () => {
                 let popup = document.querySelector('.popup');
                 e.preventDefault();
                 popup.style.display = "flex";
-                console.log(cekDiskon());
                 axios.post('http://localhost:5000/order', {
                     name: item.name,
                     price: item.price,
@@ -116,52 +135,25 @@ const PaymentBody = () => {
               })
             }
             else{
-              Pop(3000);
+              Pop(1000);
             }
           }}>Pay</BtnV2>
         </PaymentStatusInfo>
         <PaymentVoucher>
           <VoucherInput placeholder='Input Voucher Code' className='voucher' onChange={(e) => {
-              if(e.target.value === "NewYear"){
-                total=0;
-                products.forEach((item) => {
-                  total+=(item.price * item.qty);
-                });
-                let diskon=total*15/100;
-                total=total-diskon;
-                total = total + total/15 + 15000;
-                total=Math.round(total);
-                document.querySelector('.status').innerHTML = "Discount 15%";
-                document.querySelector('.total').innerHTML = `Total: Rp. ${total},-`;
-              }
-              else if(e.target.value === "Pizzaria0303"){
-                total=0;
-                products.forEach((item) => {
-                  total+=(item.price * item.qty);
-                });
-                total= total + total/40 + 15000;
-                let diskon=total*40/100;
-                total=total-diskon;
-                total=Math.round(total);
-                
-                document.querySelector('.status').innerHTML = "Discount 40%";
-                document.querySelector('.total').innerHTML = `Total: Rp. ${total},-`;
-              }
-              else if(e.target.value === "ChineseNewYear"){
-                total=0;
-                products.forEach((item) => {
-                  total+=(item.price * item.qty);
-                });
-                total= total + total/30 + 15000;
-                let diskon=total*30/100;
-                total=total-diskon;
-                total=Math.round(total);
-                
-                document.querySelector('.status').innerHTML = "Discount 30%";
-                document.querySelector('.total').innerHTML = `Total: Rp. ${total},-`;
+              let persen=0;
+              voucher.forEach(element => {
+                if(element.code===e.target.value){
+                  persen = element.persentage;
+                }
+              });
+              if(persen !== 0){
+                document.querySelector('.status').innerHTML = `Discount ${persen}%`;
+                document.querySelector('.total').innerHTML = `Total: Rp. ${cekTotal(persen)},-`;
               }
               else{
                 document.querySelector('.status').innerHTML = "Not Available";
+                document.querySelector('.total').innerHTML = `Total: Rp. ${total + total/10 + 15000},-`;
               }
           }}></VoucherInput>
           <VoucherStatus className='status'></VoucherStatus>
