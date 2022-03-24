@@ -105,7 +105,6 @@ export const CenterInfoContainer = styled.div`
 export const TextP = styled.p`
     font-size: 1.5rem;
     color: #676b78;
-    margin-right: 1.5rem;
     text-align: center;
 
     @media only screen and (max-width: 970px){
@@ -170,7 +169,7 @@ export const Dot = styled.div`
     height: 20px;
     border-radius: 50%;
     background: #eec956;
-    margin-right: .5rem;
+    margin-inline: .5rem;
 `;
 
 export const DotPurple = styled.div`
@@ -178,7 +177,7 @@ export const DotPurple = styled.div`
     height: 20px;
     border-radius: 50%;
     background: #b658f5;
-    margin-right: .5rem;
+    margin-inline: .5rem;
 `;
 
 export const DotRed = styled.div`
@@ -186,7 +185,7 @@ export const DotRed = styled.div`
     height: 20px;
     border-radius: 50%;
     background: #e47992;
-    margin-right: .5rem;
+    margin-inline: .5rem;
 `;
 
 export const DotGreen = styled.div`
@@ -194,7 +193,7 @@ export const DotGreen = styled.div`
     height: 20px;
     border-radius: 50%;
     background: #37be9a;
-    margin-right: .5rem;
+    margin-inline: .5rem;
 `;
 
 export const DotBlue = styled.div`
@@ -202,7 +201,7 @@ export const DotBlue = styled.div`
     height: 20px;
     border-radius: 50%;
     background: #6eb3d6;
-    margin-right: 1rem;
+    margin-inline: 1rem;
 `;
 
 export const DotRedd = styled.div`
@@ -210,7 +209,7 @@ export const DotRedd = styled.div`
     height: 20px;
     border-radius: 50%;
     background: red;
-    margin-right: 1rem;
+    margin-inline: 1rem;
 `;
 
 export const PersentageResult = styled.p`
@@ -252,7 +251,7 @@ export const TableHeader = styled.div`
 `;
 
 export const TableHeaderItem = styled.p`
-    color: #676b78;
+    color: white;
     font-size: 1.7rem;
     width: 200px;
     text-align: center;
@@ -276,6 +275,10 @@ export const ProfitContainer = styled.div`
     }
 
     @media only screen and (max-width: 570px){
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    @media only screen and (max-width: 330px){
         grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     }
 `;
@@ -297,18 +300,56 @@ export const ProfitItem = styled.div`
 export const TableOverflow = styled.div`
     max-height: 500px;
     min-width: 700px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    ::-webkit-scrollbar{
+        background: none;
+        width: 1px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0);
+        outline: none;
+        border: 1px solid rgba(255,255,255,.2);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,.7); 
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: white; 
+    }
 `;
 
 export const TableContainer = styled.div`
     width: 90%;
-    overflow: auto;
     border-radius: 30px;
     padding: 1.5rem;
     background: #1d202d;
+    overflow-y: hidden;
+    overflow-x: auto;
 
     ::-webkit-scrollbar{
-        display: none;
+        background: none;
+        height: 10px;
     }
+    
+    ::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0);
+        outline: none;
+        border: 1px solid rgba(255,255,255,.2);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,.7); 
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: white; 
+    }
+
 `;
 
 export const Container = styled.div`
@@ -326,19 +367,6 @@ export const Container = styled.div`
     }
 `;
 
-export const ZeroContainer = styled.div`
-    width: 100%;
-    background: #1d202d;
-    overflow: auto;
-    border-radius: 30px;
-    max-height: 380px;
-    padding: 1rem;
-    
-    ::-webkit-scrollbar{
-        display: none;
-    }
-`;
-
 export const ZeroHeader = styled.div`
     width: 100%;
     height: 50px;
@@ -347,6 +375,7 @@ export const ZeroHeader = styled.div`
     justify-content: center;
     align-items: end;
     font-size: 1.5rem;
+    margin-bottom: 1rem;
 `;
 
 export const ZeroTableHeader = styled.div`
@@ -357,14 +386,18 @@ export const ZeroTableHeader = styled.div`
     padding: 0 1rem;
     padding-bottom: 1rem;
 
-    @media only screen and (max-width: 430px){
+    @media only screen and (max-width: 456px){
         justify-content: space-between;
     }
 `;
 
-export const ZeroTable = styled.div`
-    max-height: 500px;
-    margin-top: 1rem;
+export const ZeroTableHeaders = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 1rem;
+    padding-bottom: 1rem;
 `;
 
 export const ZeroItem = styled.p`
@@ -381,7 +414,7 @@ export const ZeroItems = styled.p`
 `;
 
 export const ZeroItemss = styled.p`
-    color: #676b78;
+    color: white;
     font-size: 1.4rem;
     width: 300px;
     text-align: center;
@@ -391,14 +424,14 @@ export const ZeroItemss = styled.p`
         font-size: 1.2rem;
     }
 
-    @media only screen and (max-width: 430px){
+    @media only screen and (max-width: 456px){
         width: 100px;
         text-align: start;
     }
 `;
 
 export const ZeroItemssRemove = styled.p`
-    color: #676b78;
+    color: white;
     font-size: 1.4rem;
     width: 300px;
     text-align: center;
@@ -408,13 +441,13 @@ export const ZeroItemssRemove = styled.p`
         font-size: 1.2rem;
     }
 
-    @media only screen and (max-width: 575px){
+    @media only screen and (max-width: 660px){
         display: none;
     }
 `;
 
 export const ZeroItemsss = styled.p`
-    color: white;
+    color: #676b78;
     font-size: 1.5rem;
     text-align: center;
     width: 300px;
@@ -424,13 +457,13 @@ export const ZeroItemsss = styled.p`
         font-size: 1.3rem;
     }
 
-    @media only screen and (max-width: 430px){
+    @media only screen and (max-width: 456px){
         width: 100px;
     }
 `;
 
 export const ZeroItemsssRemove = styled.p`
-    color: white;
+    color: #676b78;
     font-size: 1.5rem;
     text-align: center;
     width: 300px;
@@ -475,7 +508,7 @@ export const BtnDelete = styled.button`
         padding: .5rem;
     }
 
-    @media only screen and (max-width: 430px){
+    @media only screen and (max-width: 456px){
         padding-block: .2rem;
         width: 100px;
     }
@@ -494,6 +527,21 @@ export const AddUpdateContainer = styled.div`
     max-height: 380px;
 `;
 
+export const ZeroContainer = styled.div`
+    width: 100%;
+    background: #1d202d;
+    overflow: auto;
+    border-radius: 30px;
+    max-height: 380px;
+    padding: 1rem;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+`;
+
 export const AddForm = styled.form`
     width: 100%;
     padding-inline: 1rem;
@@ -503,7 +551,22 @@ export const AddForm = styled.form`
     max-height: 380px;
     
     ::-webkit-scrollbar{
-        display: none;
+        background: none;
+        width: 1px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0);
+        outline: none;
+        border: 1px solid rgba(255,255,255,.2);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,.7); 
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: white; 
     }
 `;
 

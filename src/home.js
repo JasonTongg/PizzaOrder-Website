@@ -16,7 +16,7 @@ const contact = () => {
                 <Products heading='Choose Your Favorite Pizza' data1={`${0}`} data2={`${2}`}/>
             </ContainerBlack>
             <Feature />
-                <Container>
+            <Container>
                 <Products heading='Choose Your Fancy Drink' data1={`${9}`} data2={`${11}`} />
                 <Products heading='Best Sweets for You' data1={`${12}`} data2={`${14}`} />
             </Container>

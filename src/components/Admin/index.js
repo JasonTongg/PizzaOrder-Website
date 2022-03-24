@@ -1,5 +1,5 @@
 import React from 'react';
-import {BodyContainer, InnerContainer, ContainerHeader, InfoContainer, BigInfoContainer, SmallInfoContainer, CenterInfoContainer, TextP, TextP2, Persentage, Dot, DotRed, DotGreen, PersentageResult, BigText, TextP3, TableHeader, TableHeaderItem, TableRowItem, ProfitContainer, ProfitItem, DotBlue, DotRedd, TableOverflow, TableContainer, TextP4, Container, ZeroContainer, AddUpdateContainer, ZeroHeader, ZeroTableHeader, ZeroItem, ZeroTable, ZeroItems, ZeroItemss, ZeroItemsss,AddForm, AddLabel, AddInput, AddFormItem, AddSelect, AddOption, AddTextArea, AddLabel1, DotPurple, BtnDelete, ZeroItemssRemove, ZeroItemsssRemove} from './AdminElements';
+import {BodyContainer, InnerContainer, ContainerHeader, InfoContainer, BigInfoContainer, SmallInfoContainer, CenterInfoContainer, TextP, TextP2, Persentage, Dot, DotRed, DotGreen, PersentageResult, BigText, TextP3, TableHeader, TableHeaderItem, TableRowItem, ProfitContainer, ProfitItem, DotBlue, DotRedd, TableOverflow, TableContainer, TextP4, Container, ZeroContainer, AddUpdateContainer, ZeroHeader, ZeroTableHeader, ZeroItem, ZeroItems, ZeroItemss, ZeroItemsss,AddForm, AddLabel, AddInput, AddFormItem, AddSelect, AddOption, AddTextArea, AddLabel1, DotPurple, BtnDelete, ZeroItemssRemove, ZeroItemsssRemove, ZeroTableHeaders} from './AdminElements';
 import {BlackWhiteButton} from "../SmallElement/Button"
 import {Popup3, TextPop, PopText} from "../SmallElement/Popup"
 import {useEffect, useState} from 'react';
@@ -10,7 +10,6 @@ const Admin = () => {
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
-  const [qty, setQty] = useState('');
   const [desc, setDesc] = useState('');
   const [image, setImage] = useState('');
   const [type, setType] = useState('');
@@ -122,6 +121,9 @@ const Admin = () => {
     return (jumlah/JumlahProduct)*100;
   }
 
+  let voucherStatus1 = voucher.find((item, index) => index===0);
+  let voucherStatus2 = voucher.find((item, index) => index===1);
+
   return (
     <BodyContainer>
       <ContainerHeader>Admin Panel</ContainerHeader>
@@ -194,37 +196,45 @@ const Admin = () => {
                 return (
                 <TextP>{print} Voucher</TextP>
               )})}
+              <TextP>{voucherStatus1 === undefined ? "Voucher Not Available" : ""}</TextP>
               <Persentage>
-                <Dot></Dot>
-                <PersentageResult>{Math.round(Persen(Voucher_1))}%</PersentageResult>
+                {voucher.filter((item, index) => index===0).map((item) => (
+                  <Dot></Dot>
+                ))}
+                <PersentageResult>{voucherStatus1 === undefined ? "" : Math.round(Persen(Voucher_1)) + "%"}</PersentageResult>
               </Persentage>
             </SmallInfoContainer>
             <SmallInfoContainer>
-              {voucher.filter((item, index) => index===1).map((item) => 
               {
-                let print="";
-                if(item.code === "Pizzaria0303"){
-                  print = "Pizzaria"
-                }
-                else if(item.code === "ChineseNewYear"){
-                  print = "Chinese"
-                }
-                else{
-                  print = item.code;
-                }
-                return (
-                <TextP>{print} Voucher</TextP>
-              )})}
+                voucher.filter((item, index) => index===1).map((item) => {
+                  let print="";
+                  if(item.code === "Pizzaria0303"){
+                    print = "Pizzaria"
+                  }
+                  else if(item.code === "ChineseNewYear"){
+                    print = "Chinese"
+                  }
+                  else{
+                    print = item.code;
+                  }
+                  return (
+                    <TextP>{print} Voucher</TextP>
+                  )
+                })
+              }
+              <TextP>{voucherStatus2 === undefined ? "Voucher Not Available" : ""}</TextP>
               <Persentage>
-                <DotRed></DotRed>
-                <PersentageResult>{Math.round(Persen(Voucher_2))}%</PersentageResult>
+                {voucher.filter((item, index) => index===1).map((item) => (
+                  <DotRed></DotRed>
+                ))}
+                <PersentageResult>{voucherStatus2 === undefined ? "" : Math.round(Persen(Voucher_2)) + "%"}</PersentageResult>
               </Persentage>
             </SmallInfoContainer>
             <SmallInfoContainer>
-              <TextP>Other Voucher</TextP>
+              <TextP>{voucherStatus1 === undefined && voucherStatus2 === undefined ? "Past Voucher" : "Other Voucher"}</TextP>
               <Persentage>
                 <DotGreen></DotGreen>
-                <PersentageResult>{Math.round(100 - Persen(Voucher_2) - Persen(Voucher_1))}%</PersentageResult>
+                <PersentageResult>{Math.round(100 - Persen(Voucher_2) - Persen(Voucher_1) - Persen(NoVoucher))}%</PersentageResult>
               </Persentage>
             </SmallInfoContainer>
             <SmallInfoContainer>
@@ -283,16 +293,16 @@ const Admin = () => {
       <Container>
         <ZeroContainer>
           <ZeroHeader>Zero Order</ZeroHeader>
-          <ZeroTable>
-            <ZeroTableHeader>
+          <AddForm>
+            <ZeroTableHeaders>
               <ZeroItems>Product Name</ZeroItems>
-            </ZeroTableHeader>
+            </ZeroTableHeaders>
             {lists.filter((item) => cariQty(`${item.name}`)===0).map((item) => (
-              <ZeroTableHeader>
+              <ZeroTableHeaders>
                 <ZeroItem>{item.name}</ZeroItem>
-              </ZeroTableHeader>
+              </ZeroTableHeaders>
             ))}
-          </ZeroTable>
+          </AddForm>
         </ZeroContainer>
         <AddUpdateContainer>
           <ZeroHeader>Add Product</ZeroHeader>
@@ -356,7 +366,7 @@ const Admin = () => {
       <Container>
         <ZeroContainer>
           <ZeroHeader>Available Voucher</ZeroHeader>
-            <ZeroTable>
+            <AddForm>
               <ZeroTableHeader>
                 <ZeroItemsss>Voucher</ZeroItemsss>
                 <ZeroItemsssRemove>Percentage</ZeroItemsssRemove>
@@ -366,12 +376,13 @@ const Admin = () => {
                 <ZeroTableHeader>
                   <ZeroItemss>{item.code}</ZeroItemss>
                   <ZeroItemssRemove>{item.persentage}</ZeroItemssRemove>
-                  <BtnDelete onClick={() => {
+                  <BtnDelete onClick={(e) => {
+                    e.preventDefault();
                     deleteVoucher(item.id);
                   }}>Delete</BtnDelete>
                 </ZeroTableHeader>
               ))}
-            </ZeroTable>
+            </AddForm>
         </ZeroContainer>
         <AddUpdateContainer>
           <ZeroHeader>Add Voucher</ZeroHeader>

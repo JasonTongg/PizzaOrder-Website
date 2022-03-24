@@ -61,6 +61,7 @@ export const HeroH1 = styled.h1`
   padding: .5rem 1.5rem;
   letter-spacing: 3px;
   font-weight: 100;
+  text-align: center;
 
   @media only screen and (max-width: 600px){
     font-size: 2rem;

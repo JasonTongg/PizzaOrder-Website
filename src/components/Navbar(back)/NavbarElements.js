@@ -79,6 +79,40 @@ export const NavIcon = styled.div`
   }
 `;
 
+export const NavIcons = styled.div`
+  display: block;
+  cursor: pointer;
+  color: #fff;
+  width: 9.375rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-weight: 100;
+  font-size: 20px;
+  transition: 0.2s ease-out;
+  margin: 0 2rem;
+  margin-top: 1rem;
+
+  @media screen and (max-width: 900px) {
+    width: 8rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 7rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    width: 6rem;
+  }
+
+  &:hover{
+    transition: 0.2s ease-out;
+    color: #ff680f;
+  }
+`;
+
 export const NavItem = styled.div`
   display: flex;
   flex-direction: column;

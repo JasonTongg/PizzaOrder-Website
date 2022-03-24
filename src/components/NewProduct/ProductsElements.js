@@ -21,26 +21,6 @@ export const ProductWrapper = styled.div`
   margin: 0 auto;
   border-radius: 15px;
   border: 2px solid rgba(255,255,255,.2);
-
-  ::-webkit-scrollbar{
-    background: none;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: rgb(21,15,15); 
-    border: 2px solid rgba(255,255,255,.5);
-    border-radius: 15px;
-    outline: none;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #cc4d02; 
-    border-radius: 15px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #cc6d35; 
-  }
 `;
 
 export const ProductCard = styled.form`

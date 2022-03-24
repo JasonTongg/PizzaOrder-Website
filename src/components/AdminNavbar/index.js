@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavLink, NavIcon, Bars , NavItem, Phone, Logout} from './NavbarElements';
+import { Nav, NavLink, NavIcon, Bars , NavItem, Phone, Logout, NavItems} from './NavbarElements';
 
 const Navbar = ({ toggle }) => {
   return (
@@ -15,10 +15,12 @@ const Navbar = ({ toggle }) => {
             <Phone />
           </NavIcon>  
         </NavItem>
-        <NavIcon>
+        <NavItems>
+          <NavIcon>
             <NavLink to='/'>Logout</NavLink>
             <Logout />
           </NavIcon>
+        </NavItems>
       </Nav>
     </>
   );

@@ -8,7 +8,7 @@ export const ProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
 
   @media only screen and (max-width: 1070px){
     align-items: center;

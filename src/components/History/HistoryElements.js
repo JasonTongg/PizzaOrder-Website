@@ -64,7 +64,22 @@ export const TableItemContainer = styled.div`
     border-radius: 30px;
     padding: 1rem 0;
 
-    ::-webkit-scrollbar {
-        display: none;
+    ::-webkit-scrollbar{
+        background: none;
+        width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0);
+        outline: none;
+        border: 1px solid rgba(255,255,255,.2);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,.7); 
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: white; 
     }
 `;

@@ -46,10 +46,12 @@ export const HeroH1 = styled.h1`
   padding: .5rem 1.5rem;
   letter-spacing: 3px;
   font-weight: 100;
+  text-align: center;
 `;
 
 export const HeroP = styled.p`
   font-size: clamp(1rem, 1.5vw, 2rem);
   margin-bottom: 2rem;
   font-weight: 100;
+  text-align: center;
 `;

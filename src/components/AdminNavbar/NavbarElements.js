@@ -14,6 +14,7 @@ export const Nav = styled.nav`
   width: 100vw;
   position: sticky;
   top: 0;
+
 `;
 
 export const NavLink = styled(Link)`
@@ -53,28 +54,19 @@ export const NavIcon = styled.div`
   transition: 0.2s ease-out;
   margin: 0 1rem;
 
-  @media screen and (max-width: 900px) {
-    width: 8rem;
-  }
-
-  @media screen and (max-width: 600px) {
-    width: 7rem;
-    margin: 0 .7rem;
+  @media screen and (max-width: 440px) {
+    height: 30px;
   }
 
   @media screen and (max-width: 360px) {
     width: 6rem;
-  }
-
-  @media screen and (max-width: 440px) {
-    margin: .5rem 0;
   }
 `;
 
 export const NavItem = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 34.375rem;
 
@@ -93,7 +85,27 @@ export const NavItem = styled.div`
   @media screen and (max-width: 440px) {
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 1rem;
+    margin-left: .5rem;
+  }
+`;
+
+export const NavItems = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 34.375rem;
+
+  @media screen and (max-width: 900px) {
+    width: 30rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 25rem;
+  }
+
+  @media screen and (max-width: 540px) {
+    width: 19rem;
   }
 `;
 

@@ -4,6 +4,7 @@ export const BodyContainer = styled.body`
     background: #121421;
     padding: 4rem 8rem;
     width: 100vw;
+    min-height: 100vh;
 
     @media only screen and (max-width: 720px){
         padding: 4rem 4rem;

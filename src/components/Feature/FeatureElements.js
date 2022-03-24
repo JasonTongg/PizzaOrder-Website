@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import FeaturePic from '../../images/featured3.png';
 
 export const FeatureContainer = styled.div`
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
-    url(${FeaturePic});
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(${FeaturePic});
   height: 70vw;
   max-height: 500px;
   background-position: center;
@@ -24,6 +23,10 @@ export const FeatureContainer = styled.div`
     padding: 0 4rem;
   }
 
+  @media only screen and (max-width: 370px){
+    padding: 0 2.5rem;
+  }
+
   h1 {
     font-size: 4rem;
     font-weight: 500;
@@ -36,6 +39,10 @@ export const FeatureContainer = styled.div`
     @media only screen and (max-width: 500px){
       font-size: 2rem;
     }
+
+    @media only screen and (max-width: 370px){
+      font-size: 1.5rem;
+    }
   }
 
   p {
@@ -47,6 +54,10 @@ export const FeatureContainer = styled.div`
 
     @media only screen and (max-width: 500px){
       font-size: 1rem;
+    }
+
+    @media only screen and (max-width: 370px){
+      font-size: .8rem;
     }
   }
 `;

@@ -70,7 +70,7 @@ export const SidebarLinkContainer = styled.div`
 
 export const SideBtnWrap = styled.div`
   width: 70%;
-  height: 20%;
+  height: 60px;
   background: white;
   display: flex;
   align-items: center;

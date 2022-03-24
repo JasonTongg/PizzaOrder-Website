@@ -34,11 +34,17 @@ export const Left = styled.div`
     }
 `;
 
-export const LeftText = styled.div``;
+export const LeftText = styled.div`
+    @media only screen and (max-width: 255px){
+        margin-top: 4rem;
+    }
+`;
 
 export const LeftHeader = styled.h1`
     font-size: 4rem;
     color: white;
+    text-align: center;
+    line-height: 2.7rem;
 
     @media only screen and (max-width: 1250px){
         font-size: 3rem;
@@ -177,6 +183,7 @@ export const LoginStatus = styled.p`
     font-size: 1rem;
     text-align: center;
     color: black;
+    font-weight: bold;
 `;
 
 export const LoginStatusContainer = styled.div`
