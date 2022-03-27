@@ -56,7 +56,8 @@ const Products = ({ heading, data1,data2, list }) => {
     <ProductsContainer>
       <ProductsHeading>{heading}</ProductsHeading>
       <ProductWrapper>
-        {lists.map((product, index) => {
+        {
+        lists.map((product, index) => {
           if (index>=data1 && index<=data2) {
             return (
               <ProductCard onSubmit={saveProduct}>
