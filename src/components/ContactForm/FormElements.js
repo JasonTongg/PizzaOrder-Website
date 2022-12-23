@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { keyframes } from "styled-components";
-import bg from '../../images/pop.jpg';
 
 export const FormBody = styled.body`
   background: #150f0f;
@@ -16,7 +14,7 @@ export const Form = styled.form`
   color: white;
   padding-block: 3rem;
 
-  @media only screen and (max-width: 650px){
+  @media only screen and (max-width: 650px) {
     width: 80%;
   }
 `;
@@ -26,7 +24,7 @@ export const FormItem = styled.div`
   flex-direction: column;
   width: 100%;
 
-  &:not(:last-child){
+  &:not(:last-child) {
     margin-bottom: 20px;
   }
 `;

@@ -59,7 +59,7 @@ const Products = ({ heading, data, list }) => {
         {lists.map((product, index) => {
           if (index>=data) {
             return (
-              <ProductCard onSubmit={saveProduct}>
+              <ProductCard onSubmit={saveProduct} key={index}>
                 <ProductImg src={product.image} alt={product.alt} />
                 <ProductInfo>
                   <ProductTitle>{product.name}</ProductTitle>
